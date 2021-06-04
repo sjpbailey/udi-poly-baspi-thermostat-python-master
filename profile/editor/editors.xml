@@ -1,0 +1,46 @@
+<editors>
+    <!-- Boolean -->
+    <editor id="bool">
+        <range uom="2" subset="0,1" />
+    </editor>
+    
+    <editor id="I_DEBUG">
+      <range uom="25" subset="9,10,20,30,40,50" nls="CDM"/>
+    </editor>
+    
+    <editor id="STATUS">
+        <range uom="80" subset="0,1" />
+    </editor>
+    
+    <editor id="FAHVAL">
+        <range uom="17" min="0" max="10000" step="1" prec="0" />
+    </editor>
+    
+    <editor id="tempheat">
+        <range uom="17" min="45" max="120" step="1" prec="0"/>
+    </editor>
+    
+    <editor id="tempcool">
+        <range uom="17" min="45" max="100" step="1" prec="0"/>
+    </editor>
+
+    <editor id="on_off">
+        <range uom="25" subset="0-1" nls="ON_OFF" />
+    </editor>
+
+    <editor id="FAN">
+        <range uom="25" subset="0-1" nls="FAN" />
+    </editor>
+
+    <editor id="AUX">
+        <range uom="25" subset="0-1" nls="AUX" />
+    </editor>
+
+    <editor id="HECO">
+        <range uom="25" subset="0-3" nls="HECO" />
+    </editor>
+
+    <editor id="RAWVAL">
+        <range uom="56" min="0" max="10000" prec="0" />
+    </editor>
+</editors>

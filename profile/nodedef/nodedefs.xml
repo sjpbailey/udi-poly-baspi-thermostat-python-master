@@ -1,0 +1,79 @@
+<nodeDefs>
+    <!-- NODE DEF from 5.0 document http://wiki.universal-devices.com/index.php?title=V50_MAIN -->
+    <!-- controller, this must mach the id in your Controller class-->
+    <nodeDef id="controller" nls="ctl">
+        <editors />
+        <sts>
+			<st id="ST" editor="bool" />
+            <st id="GV0" editor="bool" />
+		</sts>
+        <cmds>
+            <sends>
+              <!-- These are for our heartbeat -->
+              <cmd id="DON" />
+              <cmd id="DOF" />
+            </sends>
+            <accepts>
+              <cmd id="QUERY" />
+              <cmd id="DISCOVER" />
+              <cmd id="REMOVE_NOTICES_ALL" />
+              <cmd id="UPDATE_PROFILE" />
+            </accepts>
+        </cmds>
+    </nodeDef>
+	<!-- thermostatnodeid -->
+    <nodeDef id="basstatid" nls="statnode">
+        <editors />
+        <sts>
+            <st id="GV19" editor="on_off" />
+            <st id="GV20" editor="FAN" />
+            <st id="GV21" editor="AUX" />
+            <st id="GV12" editor="tempheat" />
+            <st id="GV13" editor="tempcool" />
+            <st id="GV22" editor="HECO" />
+            <st id="GV0" editor="FAHVAL" />
+            <st id="GV1" editor="FAHVAL" />
+            <st id="GV2" editor="FAHVAL" />
+            <st id="GV4" editor="FAHVAL" />
+            <st id="GV5" editor="FAHVAL" />
+            <st id="GV6" editor="STATUS" />
+            <st id="GV3" editor="STATUS" />
+            <st id="GV11" editor="STATUS" />
+            <st id="GV7" editor="STATUS" />
+            <st id="GV8" editor="STATUS" />
+            <st id="GV9" editor="STATUS" />
+            <st id="GV10" editor="STATUS" />
+        </sts>
+        <cmds>
+            <sends />
+            <accepts>
+               <cmd id="BON1" >
+                <p id="" editor="on_off" init="GV19" />
+               </cmd>
+
+               <cmd id="BON2" >
+                <p id="" editor="FAN" init="GV20" />
+               </cmd>
+
+               <cmd id="BON3" >
+                <p id="" editor="AUX" init="GV21" />
+               </cmd>
+                
+               <cmd id="HECO" >
+		        <p id="" editor="HECO" init="GV22" />
+               </cmd>
+                
+               <cmd id="STHT" >
+		        <p id="" editor="tempheat" init="GV12" />
+               </cmd>
+
+               <cmd id="STCL" >
+		        <p id="" editor="tempcool" init="GV13" />
+               </cmd>
+ 
+                <cmd id="QUERY" />
+                  
+           </accepts>
+        </cmds>
+    </nodeDef>
+</nodeDefs>

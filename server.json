@@ -1,0 +1,24 @@
+{
+  "name": "BASThermostat",
+  "docs": "https://github.com/sjpbailey/udi-poly-baspi-thermostat-python-master",
+  "type": "python3",
+  "executable": "baspi-thermostat-poly.py",
+  "install": "install.sh",
+  "install_cloud": "install_cloud.sh",
+  "description": "Thermostat using a BASpi-6U6R or BASpi-Edge Wi-Fi IP BACnet Control Devices",
+  "notice": "Use at your own risk",
+  "shortPoll": "120",
+  "longPoll": "240",
+  "testMode": false,
+  "profile_version": "1.6.0",
+  "credits": [
+    {
+      "title": "BASpi-6U6R/Edge Thermostat",
+      "author": "Steve Bailey (sjpbailey)",
+      "version": "1.6.0",
+      "date": "April 15, 2021",
+      "source": "https://github.com/sjpbailey/udi-poly-baspi-thermostat-python-master",
+      "license": "https://github.com/sjpbailey/udi-poly-baspi-thermostat-python-master/LICENSE"
+    }
+  ]
+}
