@@ -230,7 +230,7 @@ class BasStatOneNode(polyinterface.Node):
         {'driver': 'GV8', 'value': 1, 'uom': 80}, # Heat Stage 2 BO-3
         {'driver': 'GV9', 'value': 1, 'uom': 80}, # Cool Stage 1 BO-4
         {'driver': 'GV10', 'value': 1, 'uom': 80}, # Cool Stage 2 BO-5
-        {'driver': 'GV11', 'value': 1, 'uom': 25}, # Aux Override BO-6
+        {'driver': 'GV11', 'value': 1, 'uom': 80}, # Aux Override BO-6
         {'driver': 'GV12', 'value': 1, 'uom': 17}, # Virtual Value VT-1 Heat SETP
         {'driver': 'GV13', 'value': 1, 'uom': 17}, # Virtual Value VT-2 Cool SETP
         {'driver': 'GV14', 'value': 1, 'uom': 25}, # Virtual Value VT-3 Schedual
@@ -241,7 +241,7 @@ class BasStatOneNode(polyinterface.Node):
         {'driver': 'GV19', 'value': 0, 'uom': 25}, # For Schedual OVRD
         {'driver': 'GV20', 'value': 0, 'uom': 25}, # For Fan OVRD
         {'driver': 'GV21', 'value': 0, 'uom': 25}, # For Aux OVRD
-        {'driver': 'GV22', 'value': 1, 'uom': 25}, # For Mode OVRD
+        {'driver': 'GV22', 'value': 0, 'uom': 25}, # For Mode OVRD
         ]
     id = 'basstatid'
     """
