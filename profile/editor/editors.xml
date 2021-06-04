@@ -33,7 +33,7 @@
     </editor>
 
     <editor id="AUX">
-        <range uom="25" subset="0-1" nls="AUX" />
+        <range uom="25" subset="0-1" nls="FAN" />
     </editor>
 
     <editor id="HECO">
