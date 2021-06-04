@@ -82,7 +82,7 @@ class BasStatOneNode(polyinterface.Node):
         self.setVirtualDriver('GV15', 4, 204) # Virtual Value VT-4 Fan Enable
         self.setVirtualDriver('GV16', 5, 205) # Virtual Value VT-5 Heat Enable
         self.setVirtualDriver('GV17', 6, 206) # Virtual Value VT-6 Cool Enable
-        self.setVirtualDriver('GV21', 7, 207) # Virtual Value VT-7 Aux Enable   
+        self.setVirtualDriver('GV18', 7, 207) # Virtual Value VT-7 Aux Enable   
     
     ### Universal Input Conversion ###
     def setInputDriver(self, driver, input):
@@ -147,13 +147,13 @@ class BasStatOneNode(polyinterface.Node):
         self.setDriver("GV21", self.setaux) 
         if self.bc.virtualValue(7, 207) == 0:
             self.bc.virtualValue(7, 207, 1)
-            self.setDriver("GV21", 1)
+            self.setDriver("GV18", 1)
             self.setDriver("GV11", 1)
             LOGGER.info('On')
     #def cmdOn4(self, command):    
         elif self.bc.virtualValue(7, 207) == 1:
             self.bc.virtualValue(7, 207, 0)
-            self.setDriver("GV21", 0)
+            self.setDriver("GV18", 0)
             self.setDriver("GV11", 0)
             LOGGER.info('Auto')
        
