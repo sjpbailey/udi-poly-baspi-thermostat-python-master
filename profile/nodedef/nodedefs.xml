@@ -38,7 +38,7 @@
             <st id="GV5" editor="FAHVAL" />
             <st id="GV6" editor="STATUS" />
             <st id="GV3" editor="STATUS" />
-            <st id="GV11" editor="STATUS" />
+            <st id="GV11" editor="FAN" />
             <st id="GV7" editor="STATUS" />
             <st id="GV8" editor="STATUS" />
             <st id="GV9" editor="STATUS" />
@@ -56,7 +56,7 @@
                </cmd>
 
                <cmd id="BON3" >
-                <p id="" editor="AUX" init="GV21" />
+                <p id="" editor="FAN" init="GV21" />
                </cmd>
                 
                <cmd id="HECO" >
