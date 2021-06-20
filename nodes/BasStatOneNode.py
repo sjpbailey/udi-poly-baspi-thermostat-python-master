@@ -90,6 +90,10 @@ class BasStatOneNode(polyinterface.Node):
         self.setControllerDriver('GV21' )
         self.setControllerDriver('GV22' )
     
+    def setControllerDriver(self, driver):
+        
+        pass
+
     ### Universal Input Conversion ###
     def setInputDriver(self, driver, input):
         input_val = self.bc.universalInput(input)
