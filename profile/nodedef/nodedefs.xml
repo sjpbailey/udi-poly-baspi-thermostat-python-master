@@ -56,7 +56,7 @@
                </cmd>
 
                <cmd id="BON3" >
-                <p id="" editor="FAN" init="GV21" />
+                <p id="" editor="AUX" init="GV21" />
                </cmd>
                 
                <cmd id="HECO" >
