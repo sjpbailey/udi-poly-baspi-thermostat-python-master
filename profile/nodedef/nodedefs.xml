@@ -55,10 +55,6 @@
                <p id="" editor="FAN" init="GV20" />
                </cmd>
 
-               <cmd id="BON3" >
-               <p id="" editor="AUX" init="GV21" />
-               </cmd>
-                
                <cmd id="HECO" >
 		       <p id="" editor="HECO" init="GV22" />
                </cmd>
@@ -70,8 +66,12 @@
                <cmd id="STCL" >
 		       <p id="" editor="tempcool" init="GV13" />
                </cmd>
+
+               <cmd id="BON3" >
+               <p id="" editor="AUX" init="GV21" />
+               </cmd>
  
-                <cmd id="QUERY" />
+               <cmd id="QUERY" />
                   
            </accepts>
         </cmds>
