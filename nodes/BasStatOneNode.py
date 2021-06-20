@@ -192,34 +192,34 @@ class BasStatOneNode(polyinterface.Node):
             LOGGER.info('Cooling Setpoint = ' + str(cool) +'F')       
   
     # Fan Override 
-    def cmdOn2(self, command):
+    def cmdOn2(self, command=None ):
         self.setfan = int(command.get('value'))
         self.setDriver("GV20", self.setfan, force=True) 
         if self.setfan == 1:
             self.bc.virtualValue(4, 204, 1)
-            self.setDriver("GV15", 1)
-            self.setDriver("GV6", 1)
+            self.setDriver("GV15", 1, force=True)
+            self.setDriver("GV6", 1, force=True)
             LOGGER.info('On')
         elif self.setfan == 0:
             self.bc.virtualValue(4, 204, 0)
-            self.setDriver("GV15", 0)
-            self.setDriver("GV6", 0)
+            self.setDriver("GV15", 0, force=True)
+            self.setDriver("GV6", 0, force=True)
             LOGGER.info('Auto')
         
     # Aux Override for Whole House Fan or Exhaust
-    def cmdOn3(self, command):
+    def cmdOn3(self, command=None):
         self.setaux = int(command.get('value'))
         self.setDriver("GV21", self.setaux, force=True) 
         if self.setaux == 1:
             self.bc.virtualValue(7, 207, 1)
-            self.setDriver("GV18", 1)
-            self.setDriver("GV11", 1)
+            self.setDriver("GV18", 1, force=True)
+            self.setDriver("GV11", 1, force=True)
             LOGGER.info('On')
     #def cmdOn4(self, command):    
         elif self.setaux == 0:
             self.bc.virtualValue(7, 207, 0)
-            self.setDriver("GV18", 0)
-            self.setDriver("GV11", 0)
+            self.setDriver("GV18", 0, force=True)
+            self.setDriver("GV11", 0, force=True)
             LOGGER.info('Auto')
 
     def query(self,command=None):
@@ -248,10 +248,10 @@ class BasStatOneNode(polyinterface.Node):
         {'driver': 'GV16', 'value': 1, 'uom': 25}, # Virtual Value VT-5 Heat Enable
         {'driver': 'GV17', 'value': 1, 'uom': 25}, # Virtual Value VT-6 Cool Enable
         {'driver': 'GV18', 'value': 1, 'uom': 25}, # Virtual Value VT-7 Aux Enable
-        {'driver': 'GV19', 'value': 1, 'uom': 25}, # For Schedual OVRD
-        {'driver': 'GV20', 'value': 1, 'uom': 25}, # For Fan OVRD
-        {'driver': 'GV21', 'value': 1, 'uom': 25}, # For Aux OVRD
-        {'driver': 'GV22', 'value': 1, 'uom': 25}, # For Mode OVRD
+        {'driver': 'GV19', 'value': 0, 'uom': 25}, # For Schedual OVRD
+        {'driver': 'GV20', 'value': 0, 'uom': 25}, # For Fan OVRD
+        {'driver': 'GV21', 'value': 0, 'uom': 25}, # For Aux OVRD
+        {'driver': 'GV22', 'value': 0, 'uom': 25}, # For Mode OVRD
         ]
     id = 'basstatid'
     """
