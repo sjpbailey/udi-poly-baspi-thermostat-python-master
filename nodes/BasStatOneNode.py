@@ -210,13 +210,13 @@ class BasStatOneNode(polyinterface.Node):
     def cmdOn3(self, command):
         self.setaux = int(command.get('value'))
         self.setDriver("GV21", self.setaux) 
-        if self.setaux == 0:
+        if self.setaux == 1:
             self.bc.virtualValue(7, 207, 1)
             self.setDriver("GV18", 1)
             self.setDriver("GV11", 1)
             LOGGER.info('On')
     #def cmdOn4(self, command):    
-        elif self.setaux == 1:
+        elif self.setaux == 0:
             self.bc.virtualValue(7, 207, 0)
             self.setDriver("GV18", 0)
             self.setDriver("GV11", 0)
