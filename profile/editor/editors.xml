@@ -29,15 +29,15 @@
     </editor>
 
     <editor id="FAN">
-        <range uom="25" subset="0-2" nls="FAN" />
+        <range uom="25" subset="0-1" nls="FAN" />
     </editor>
 
     <editor id="AUX">
-        <range uom="25" subset="0-2" nls="FAN" />
+        <range uom="25" subset="0-1" nls="FAN" />
     </editor>
 
     <editor id="HECO">
-        <range uom="25" subset="0-4" nls="HECO" />
+        <range uom="25" subset="0-3" nls="HECO" />
     </editor>
 
     <editor id="RAWVAL">
