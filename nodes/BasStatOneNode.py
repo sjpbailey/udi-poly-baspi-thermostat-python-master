@@ -84,6 +84,12 @@ class BasStatOneNode(polyinterface.Node):
         self.setVirtualDriver('GV17', 6, 206) # Virtual Value VT-6 Cool Enable
         self.setVirtualDriver('GV18', 7, 207) # Virtual Value VT-7 Aux Enable   
     
+        ### Control Drivers ###
+        self.setControllerDriver('GV19' )
+        self.setControllerDriver('GV20' )
+        self.setControllerDriver('GV21' )
+        self.setControllerDriver('GV22' )
+    
     ### Universal Input Conversion ###
     def setInputDriver(self, driver, input):
         input_val = self.bc.universalInput(input)
