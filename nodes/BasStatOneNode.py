@@ -126,7 +126,7 @@ class BasStatOneNode(polyinterface.Node):
     # Remote Schedule 
     def cmdOn1(self, command):
         self.setsch = int(command.get('value'))
-        self.setDriver("GV19", self.setsch)
+        self.setDriver("GV19", self.setsch, force=True)
         if self.setsch == 1:
             self.bc.virtualValue(3, 203, 1)
             self.setDriver("GV14", 1)
@@ -139,7 +139,7 @@ class BasStatOneNode(polyinterface.Node):
     # Heat Off Cool
     def modeOn(self, command):
         self.modeOn = int(command.get('value'))
-        self.setDriver('GV22', self.modeOn)
+        self.setDriver('GV22', self.modeOn, force=True)
         if self.modeOn == 0:
             self.bc.virtualValue(5, 205, 1)
             self.bc.virtualValue(6, 206, 0)
@@ -194,7 +194,7 @@ class BasStatOneNode(polyinterface.Node):
     # Fan Override 
     def cmdOn2(self, command):
         self.setfan = int(command.get('value'))
-        self.setDriver("GV20", self.setfan) 
+        self.setDriver("GV20", self.setfan, force=True) 
         if self.setfan == 1:
             self.bc.virtualValue(4, 204, 1)
             self.setDriver("GV15", 1)
@@ -209,7 +209,7 @@ class BasStatOneNode(polyinterface.Node):
     # Aux Override for Whole House Fan or Exhaust
     def cmdOn3(self, command):
         self.setaux = int(command.get('value'))
-        self.setDriver("GV21", self.setaux) 
+        self.setDriver("GV21", self.setaux, force=True) 
         if self.setaux == 1:
             self.bc.virtualValue(7, 207, 1)
             self.setDriver("GV18", 1)
