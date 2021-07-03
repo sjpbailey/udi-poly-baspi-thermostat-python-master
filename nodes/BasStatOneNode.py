@@ -188,7 +188,7 @@ class BasStatOneNode(polyinterface.Node):
             self.bc.virtualValue(2, 202, cool)
             self.setDriver('GV13', cool)
             LOGGER.info('Cooling Setpoint = ' + str(cool) +'F')       
-  
+
     # Fan Override 
     def cmdOn2(self, command=None ):
         self.setfan = int(command.get('value'))
@@ -213,7 +213,7 @@ class BasStatOneNode(polyinterface.Node):
             self.setDriver("GV18", 1, force=True)
             self.setDriver("GV11", 1, force=True)
             LOGGER.info('On')
-    #def cmdOn4(self, command):    
+    # def cmdOn4(self, command):    
         elif self.setaux == 0:
             self.bc.virtualValue(7, 207, 0)
             self.setDriver("GV18", 0, force=True)
