@@ -93,6 +93,7 @@ class BasStatOneNode(polyinterface.Node):
     
 
     def setControllerDriver(self, driver):
+        self.setDriver(driver, force=True)
         pass
 
     ### Universal Input Conversion ###
