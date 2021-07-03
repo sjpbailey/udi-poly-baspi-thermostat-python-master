@@ -56,7 +56,7 @@
                 </cmd>
 
                 <cmd id="HECO" >
-                    <p id="" editor="HECO" init="GV22" />
+            <p id="" editor="HECO" init="GV22" />
                 </cmd>
                 
                 <cmd id="STHT" >
