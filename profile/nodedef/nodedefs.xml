@@ -25,13 +25,13 @@
     <nodeDef id="basstatid" nls="statnode">
         <editors />
         <sts>
-            <st id="GV19" editor="on_off" />
-            <st id="GV20" editor="FAN" />
-            <st id="CLIFSO" editor="FAN" />
+            <st id="GV0" editor="FAHVAL" />
             <st id="GV12" editor="tempheat" />
             <st id="GV13" editor="tempcool" />
             <st id="GV22" editor="HECO" />
-            <st id="GV0" editor="FAHVAL" />
+            <st id="GV19" editor="on_off" />
+            <st id="GV20" editor="FAN" />
+            <st id="CLIFSO" editor="FAN" />
             <st id="GV1" editor="FAHVAL" />
             <st id="GV2" editor="FAHVAL" />
             <st id="GV4" editor="FAHVAL" />
@@ -48,27 +48,27 @@
             <sends />
             <accepts>
                <cmd id="BON1" >
-               <p id="" editor="on_off" init="GV19" />
+                <p id="" editor="on_off" init="GV19" />
                </cmd>
 
                <cmd id="BON2" >
-               <p id="" editor="FAN" init="GV20" />
+                <p id="" editor="FAN" init="GV20" />
                </cmd>
 
                <cmd id="HECO" >
-		       <p id="" editor="HECO" init="GV22" />
+		        <p id="" editor="HECO" init="GV22" />
                </cmd>
                 
                <cmd id="STHT" >
-		       <p id="" editor="tempheat" init="GV12" />
+		        <p id="" editor="tempheat" init="GV12" />
                </cmd>
 
                <cmd id="STCL" >
-		       <p id="" editor="tempcool" init="GV13" />
+		        <p id="" editor="tempcool" init="GV13" />
                </cmd>
 
                <cmd id="BON3" >
-               <p id="" editor="FAN" init="CLIFSO" />
+                <p id="" editor="FAN" init="CLIFSO" />
                </cmd>
  
                <cmd id="QUERY" />
