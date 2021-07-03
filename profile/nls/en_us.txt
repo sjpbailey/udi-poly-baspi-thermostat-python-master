@@ -46,7 +46,7 @@ CMD-statnode-STCL-NAME = Cooling Setpoint
 CMD-statnode-BON1-NAME = Occupied UnOccupied
 CMD-statnode-BON2-NAME = Fan Override
 CMD-statnode-BON3-NAME = Aux Override
-CMD-statnode-HECO-NAME = Mode Heat Off Cool
+CMD-statnode-MODE-NAME = Mode Heat Off Cool
 CMD-statnode-QUERY"-NAME = Query
 
 ON_OFF-0 = UnOccupied
