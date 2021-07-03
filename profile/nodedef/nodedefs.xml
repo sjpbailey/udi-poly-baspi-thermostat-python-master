@@ -48,27 +48,27 @@
             <sends />
             <accepts>
                 <cmd id="BON1" >
-                <p id="" editor="on_off" init="GV19" />
+                    <p id="" editor="on_off" init="GV19" />
                 </cmd>
 
                 <cmd id="BON2" >
-                <p id="" editor="FAN" init="GV20" />
+                    <p id="" editor="FAN" init="GV20" />
                 </cmd>
 
                 <cmd id="HECO" >
-                <p id="" editor="HECO" init="GV22" />
+                    <p id="" editor="HECO" init="GV22" />
                 </cmd>
                 
                 <cmd id="STHT" >
-                <p id="" editor="tempheat" init="GV12" />
+                    <p id="" editor="tempheat" init="GV12" />
                 </cmd>
 
                 <cmd id="STCL" >
-                <p id="" editor="tempcool" init="GV13" />
+                    <p id="" editor="tempcool" init="GV13" />
                 </cmd>
 
                 <cmd id="BON3" >
-                <p id="" editor="FAN" init="GV21" />
+                    <p id="" editor="FAN" init="GV21" />
                 </cmd>
 
                 <cmd id="QUERY" />
