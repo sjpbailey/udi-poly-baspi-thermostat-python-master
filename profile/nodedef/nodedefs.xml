@@ -31,7 +31,7 @@
             <st id="GV22" editor="HECO" />
             <st id="GV19" editor="on_off" />
             <st id="GV20" editor="FAN" />
-            <st id="CLIFSO" editor="FAN" />
+            <st id="GV21" editor="FAN" />
             <st id="GV1" editor="FAHVAL" />
             <st id="GV2" editor="FAHVAL" />
             <st id="GV4" editor="FAHVAL" />
@@ -68,7 +68,7 @@
                </cmd>
 
                <cmd id="BON3" >
-                <p id="" editor="FAN" init="CLIFSO" />
+                <p id="" editor="FAN" init="GV21" />
                </cmd>
  
                <cmd id="QUERY" />

@@ -21,13 +21,12 @@ CDM-50 = Critical
 ND-basstatid-NAME = Fan Coil
 ND-basstatid-ICON = Thermostat
 #ST-statnode-ST-NAME = Node Status
-ST-statnode-GV19-NAME = Schedule
-ST-statnode-GV20-NAME = Fan Override
-ST-statnode-CLIFSO-NAME = Aux Override
+ST-statnode-GV0-NAME = Room Temperature
 ST-statnode-GV12-NAME = Heat Setpoint
 ST-statnode-GV13-NAME = Cool Setpoint
 ST-statnode-GV22-NAME = Mode
-ST-statnode-GV0-NAME = Room Temperature
+ST-statnode-GV19-NAME = Schedule
+ST-statnode-GV20-NAME = Fan Override
 ST-statnode-GV1-NAME = Supply Temperature
 ST-statnode-GV2-NAME = Return Temperature
 ST-statnode-GV4-NAME = Outside Air Temp
@@ -39,6 +38,7 @@ ST-statnode-GV7-NAME = Heat 1
 ST-statnode-GV8-NAME = Heat 2
 ST-statnode-GV9-NAME = Cool 1
 ST-statnode-GV10-NAME = Cool 2
+#ST-statnode-GV11-NAME = Aux Command
 
 
 CMD-statnode-STHT-NAME = Heating Setpoint

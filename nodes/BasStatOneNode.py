@@ -85,10 +85,10 @@ class BasStatOneNode(polyinterface.Node):
         self.setVirtualDriver('GV18', 7, 207) # Virtual Value VT-7 Aux Enable   
     
         ### Control Drivers ###
-        self.setControllerDriver('GV19' )
-        self.setControllerDriver('GV20' )
-        self.setControllerDriver('GV21' )
-        self.setControllerDriver('GV22' )
+        self.setControllerDriver('GV19' ) #For Schedual OVRD
+        self.setControllerDriver('GV20' ) #For Fan OVRD
+        self.setControllerDriver('GV21' ) #For Aux OVRD
+        self.setControllerDriver('GV22' ) #For Mode OVRD
     
     def setControllerDriver(self, driver):
 
@@ -101,8 +101,7 @@ class BasStatOneNode(polyinterface.Node):
         if input_val is not None:
             count = int(float(input_val))
             self.setDriver(driver, count, force=True)        
-        
-  
+
     ### Binary Output Conversion ###    
     def setOutputDriver(self, driver, input):
         output_val = self.bc.binaryOutput(input)
@@ -110,8 +109,7 @@ class BasStatOneNode(polyinterface.Node):
         if output_val is not None:
             count = (output_val)
             self.setDriver(driver, count, force=True)
-        
-    
+
     ### Virtual Conversion ###
     def setVirtualDriver(self, driver, input, chanel):
         vtout_val = self.bc.virtualValue(input, chanel)
@@ -209,7 +207,7 @@ class BasStatOneNode(polyinterface.Node):
     # Aux Override for Whole House Fan or Exhaust
     def cmdOn3(self, command=None):
         self.setaux = int(command.get('value'))
-        self.setDriver("CLIFSO", self.setaux, force=True) 
+        self.setDriver("GV21", self.setaux, force=True) 
         if self.setaux == 1:
             self.bc.virtualValue(7, 207, 1)
             self.setDriver("GV18", 1, force=True)
@@ -250,7 +248,7 @@ class BasStatOneNode(polyinterface.Node):
         {'driver': 'GV18', 'value': 1, 'uom': 25}, # Virtual Value VT-7 Aux Enable
         {'driver': 'GV19', 'value': 0, 'uom': 25}, # For Schedual OVRD
         {'driver': 'GV20', 'value': 0, 'uom': 25}, # For Fan OVRD
-        {'driver': 'CLIFSO', 'value': 0, 'uom': 25}, # For Aux OVRD
+        {'driver': 'GV21', 'value': 0, 'uom': 25}, # For Aux OVRD
         {'driver': 'GV22', 'value': 0, 'uom': 25}, # For Mode OVRD
         ]
     id = 'basstatid'
