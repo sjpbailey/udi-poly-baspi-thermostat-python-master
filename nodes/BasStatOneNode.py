@@ -144,24 +144,25 @@ class BasStatOneNode(polyinterface.Node):
             self.setDriver("GV16", 1)
             self.setDriver("GV17", 0) 
             LOGGER.info('Heat')
-        elif self.modeOn == 1:
+        if self.modeOn == 1:
             self.bc.virtualValue(5, 205, 0)
             self.bc.virtualValue(6, 206, 0)
             self.setDriver("GV16", 0)
             self.setDriver("GV17", 0) 
             LOGGER.info('Off')
-        elif self.modeOn == 2:
+        if self.modeOn == 2:
             self.bc.virtualValue(5, 205, 0)
             self.bc.virtualValue(6, 206, 1)
             self.setDriver("GV16", 0)
             self.setDriver("GV17", 1)
             LOGGER.info('Cool')
-        elif self.modeOn == 3:
+        if self.modeOn == 3:
             self.bc.virtualValue(5, 205, 1)
             self.bc.virtualValue(6, 206, 1)
             self.setDriver("GV16", 1)
             self.setDriver("GV17", 1) 
             LOGGER.info('Auto')
+        return    
     
     # Heating Setpoint
     def setHeat(self, command):
