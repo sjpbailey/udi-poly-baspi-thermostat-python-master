@@ -86,14 +86,14 @@ class BasStatOneNode(polyinterface.Node):
     
         ### Control Drivers ###
     
-        self.setControllerDriver('GV19') #For Schedual OVRD
-        self.setControllerDriver('GV20') #For Fan OVRD
-        self.setControllerDriver('GV21') #For Aux OVRD
-        self.setControllerDriver('GV22') #For Mode OVRD
+        self.setControllerDriver('GV19', 0) #For Schedual OVRD
+        self.setControllerDriver('GV20', 0) #For Fan OVRD
+        self.setControllerDriver('GV21', 0) #For Aux OVRD
+        self.setControllerDriver('GV22', 0) #For Mode OVRD
     
 
-    def setControllerDriver(self, driver):
-        self.setDriver(driver, force=True)
+    def setControllerDriver(self, driver, input):
+        self.setDriver(driver, input, force=True)
         pass
 
     ### Universal Input Conversion ###
