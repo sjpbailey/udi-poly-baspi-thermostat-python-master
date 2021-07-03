@@ -55,7 +55,7 @@
                     <p id="" editor="FAN" init="GV20" />
                 </cmd>
 
-                <cmd id="HECO" >
+                <cmd id="MODE" >
                     <p id="" editor="HECOA" init="GV22" />
                 </cmd>
                 

@@ -36,7 +36,7 @@
         <range uom="25" subset="0-1" nls="AUX" />
     </editor>
 
-    <editor id="HECO">
+    <editor id="HECOA">
         <range uom="25" subset="0-2" nls="HECOA" />
     </editor>
 

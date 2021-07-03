@@ -262,7 +262,7 @@ class BasStatOneNode(polyinterface.Node):
                     'BON3': cmdOn3,
                     'STHT': setHeat,
                     'STCL': setCool,
-                    'HECO': modeOn,
+                    'MODE': modeOn,
                     'QUERY': query,
                 }
     """
