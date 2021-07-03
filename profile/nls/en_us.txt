@@ -8,6 +8,7 @@ CMD-ctl-UPDATE_PROFILE-NAME = Update Profile
 CMD-ctl-REMOVE_NOTICES_ALL-NAME = Remove All Notices
 ST-ctl-ST-NAME = NodeServer Online
 ST-ctl-GV0-NAME = IP Active
+ST-ctl-GV1-NAME = Logging Level
 
 # Debug/Logger Modes
 CDM-9 = Debug + Modules

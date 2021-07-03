@@ -101,6 +101,45 @@ class BasStatController(Controller):
             self.reportCmd("DOF", 2)
             self.hb = 0
 
+    def set_module_logs(self,level):
+        logging.getLogger('urllib3').setLevel(level)
+
+    def set_debug_level(self,level):
+        LOGGER.debug('set_debug_level: {}'.format(level))
+        if level is None:
+            level = 30
+        level = int(level)
+        if level == 0:
+            level = 30
+        LOGGER.info('set_debug_level: Set GV1 to {}'.format(level))
+        self.setDriver('GV1', level)
+        # 0=All 10=Debug are the same because 0 (NOTSET) doesn't show everything.
+        if level <= 10:
+            LOGGER.setLevel(logging.DEBUG)
+        elif level == 20:
+            LOGGER.setLevel(logging.INFO)
+        elif level == 30:
+            LOGGER.setLevel(logging.WARNING)
+        elif level == 40:
+            LOGGER.setLevel(logging.ERROR)
+        elif level == 50:
+            LOGGER.setLevel(logging.CRITICAL)
+        else:
+            LOGGER.debug("set_debug_level: Unknown level {}".format(level))
+        # this is the best way to control logging for modules, so you can
+        # still see warnings and errors
+        #if level < 10:
+        #    self.set_module_logs(logging.DEBUG)
+        #else:
+        #    # Just warnigns for the modules unless in module debug mode
+        #    self.set_module_logs(logging.WARNING)
+        # Or you can do this and you will never see mention of module logging
+        if level < 10:
+            LOG_HANDLER.set_basic_config(True,logging.DEBUG)
+        else:
+            # This is the polyinterface default
+            LOG_HANDLER.set_basic_config(True,logging.WARNING)
+
     def check_params(self):
         st = True
         self.remove_notices_all()
