@@ -196,7 +196,7 @@ class BasStatOneNode(polyinterface.Node):
     # Heat Off Cool
     def modeOn(self, command):
         self.modeOn = int(command.get('value'))
-        self.setDriver('GV22', self.modeOn, force=True)
+        self.setDriver('CLIMD', self.modeOn, force=True)
         if self.modeOn == 0:
             self.bc.virtualValue(5, 205, 0)
             self.setDriver("GV16", 0)
@@ -251,10 +251,10 @@ class BasStatOneNode(polyinterface.Node):
         {'driver': 'GV16', 'value': 1, 'uom': 25}, # Virtual Value VT-5 Heat Enable
         {'driver': 'GV17', 'value': 1, 'uom': 25}, # Virtual Value VT-6 Cool Enable
         {'driver': 'GV18', 'value': 1, 'uom': 25}, # Virtual Value VT-7 Aux Enable
-        {'driver': 'GV19', 'value': 0, 'uom': 25}, # For Schedual OVRD
-        {'driver': 'GV20', 'value': 0, 'uom': 25}, # For Fan OVRD
-        {'driver': 'GV21', 'value': 0, 'uom': 25}, # For Aux OVRD
-        {'driver': 'GV22', 'value': 0, 'uom': 25}, # For Mode OVRD
+        {'driver': 'GV19', 'value': 1, 'uom': 25}, # For Schedual OVRD
+        {'driver': 'GV20', 'value': 1, 'uom': 25}, # For Fan OVRD
+        {'driver': 'GV21', 'value': 1, 'uom': 25}, # For Aux OVRD
+        {'driver': 'CLIMD', 'value': 1, 'uom': 67}, # For Mode OVRD
         ]
     id = 'basstatid'
     """
