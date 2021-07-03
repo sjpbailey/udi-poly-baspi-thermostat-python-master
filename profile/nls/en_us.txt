@@ -58,7 +58,7 @@ FAN-1 = Override
 AUX-0 = Auto
 AUX-1 = Override
 
-HECO-0 = Heat
-HECO-1 = Off
+HECO-0 = Off
+HECO-1 = Heat
 HECO-2 = Cool
 HECO-3 = Auto
