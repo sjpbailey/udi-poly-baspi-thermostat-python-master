@@ -6,6 +6,7 @@ CMD-ctl-QUERY-NAME = Query
 CMD-ctl-DISCOVER-NAME = Re-Discover
 CMD-ctl-UPDATE_PROFILE-NAME = Update Profile
 CMD-ctl-REMOVE_NOTICES_ALL-NAME = Remove All Notices
+CMD-ctl-SET_DM-NAME = Set Logger Level
 ST-ctl-ST-NAME = NodeServer Online
 ST-ctl-GV0-NAME = IP Active
 ST-ctl-GV1-NAME = Logging Level
