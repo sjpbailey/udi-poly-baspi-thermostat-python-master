@@ -215,15 +215,12 @@ class BasStatOneNode(polyinterface.Node):
             self.bc.virtualValue(6, 206, 1)            
             self.setDriver("GV17", 1)
             LOGGER.info('Cool')
-        pass    
-        #elif self.modeOn == 3:
-        #    if self.bc.virtualValue(5, 205) != 1:
-        #        self.bc.virtualValue(5, 205, 1)
-        #        self.setDriver("GV16", 1)
-        #    if self.bc.virtualValue(6, 206) != 1:
-        #        self.bc.virtualValue(6, 206, 1)
-        #        self.setDriver("GV17", 1) 
-        #    LOGGER.info('Auto')
+        elif self.modeOn == 3:
+            self.bc.virtualValue(5, 205, 1)
+            self.setDriver("GV16", 1)
+            self.bc.virtualValue(6, 206, 1)
+            self.setDriver("GV17", 1) 
+            LOGGER.info('Auto')
 
     def query(self,command=None):
         self.reportDrivers()
@@ -254,7 +251,7 @@ class BasStatOneNode(polyinterface.Node):
         {'driver': 'GV19', 'value': 1, 'uom': 25}, # For Schedual OVRD
         {'driver': 'GV20', 'value': 1, 'uom': 25}, # For Fan OVRD
         {'driver': 'GV21', 'value': 1, 'uom': 25}, # For Aux OVRD
-        {'driver': 'CLIMD', 'value': 1, 'uom': 67}, # For Mode OVRD
+        {'driver': 'CLIMD', 'value': 0, 'uom': 67}, # For Mode OVRD
         ]
     id = 'basstatid'
     """
