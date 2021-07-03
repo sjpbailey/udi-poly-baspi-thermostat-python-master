@@ -21,7 +21,7 @@ class BasStatOneNode(polyinterface.Node):
     def start(self):
         if self.ipaddress is not None:
             self.bc = Device(self.ipaddress)
-                              
+
         ### What is out there at this IP address
         if self.bc.ePlatform == Platform.BASC_NONE:
             LOGGER.info('Unable to connect')
@@ -49,14 +49,14 @@ class BasStatOneNode(polyinterface.Node):
         # What are the Physical Nodes or Device point currently reading
         LOGGER.info('Inputs')
         for i in range(1,7):
-               LOGGER.info('UI ' + '\t' + str(self.bc.universalInput(i)))
+            LOGGER.info('UI ' + '\t' + str(self.bc.universalInput(i)))
         LOGGER.info('Outputs')
         for i in range(1,7):
-               LOGGER.info('BO ' + '\t' + str(self.bc.binaryOutput(i)))
+            LOGGER.info('BO ' + '\t' + str(self.bc.binaryOutput(i)))
         LOGGER.info('Virtual')
         for i in range(1,8):
             for x in range(1):
-               LOGGER.info('VT '  + '\t' + str(self.bc.virtualValue(i, x)))
+                LOGGER.info('VT '  + '\t' + str(self.bc.virtualValue(i, x)))
 
         # Set Nodes used
         ### Universal Inputs ###
@@ -151,11 +151,11 @@ class BasStatOneNode(polyinterface.Node):
             self.setDriver("GV17", 0) 
             LOGGER.info('Off')
         elif self.modeOn == 2:
-           self.bc.virtualValue(5, 205, 0)
-           self.bc.virtualValue(6, 206, 1)
-           self.setDriver("GV16", 0)
-           self.setDriver("GV17", 1) 
-           LOGGER.info('Cool')
+            self.bc.virtualValue(5, 205, 0)
+            self.bc.virtualValue(6, 206, 1)
+            self.setDriver("GV16", 0)
+            self.setDriver("GV17", 1)
+            LOGGER.info('Cool')
         elif self.modeOn == 3:
             self.bc.virtualValue(5, 205, 1)
             self.bc.virtualValue(6, 206, 1)
