@@ -91,9 +91,9 @@ class BasStatOneNode(polyinterface.Node):
         self.setControllerDriver('GV21' ) #For Aux OVRD
         self.setControllerDriver('GV22' ) #For Mode OVRD
     
-    
+
     def setControllerDriver(self, driver):
-        ctrl_val = self.setDriver(driver)
+        self.setDriver(driver)
 
     pass
 
