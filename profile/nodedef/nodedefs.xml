@@ -6,7 +6,6 @@
         <sts>
 			<st id="ST" editor="bool" />
             <st id="GV0" editor="bool" />
-            <st id="ST" editor="bool" />
             <st id="GV1" editor="I_DEBUG" />
 		</sts>
         <cmds>
