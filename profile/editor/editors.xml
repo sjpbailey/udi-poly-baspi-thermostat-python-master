@@ -37,7 +37,7 @@
     </editor>
 
     <editor id="HECO">
-        <range uom="25" subset="0-3" nls="HECO" />
+        <range uom="25" subset="0-3" nls="HECOA" />
     </editor>
 
     <editor id="RAWVAL">
