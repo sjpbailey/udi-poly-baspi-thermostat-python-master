@@ -61,4 +61,4 @@ AUX-1 = Override
 HECOA-0 = Off
 HECOA-1 = Heat
 HECOA-2 = Cool
-HECOA-3 = Auto
+#HECOA-3 = Auto
