@@ -180,6 +180,11 @@ class BasStatController(Controller):
         st = self.poly.installprofile()
         return st 
 
+    def cmd_set_debug_mode(self,command):
+        val = int(command.get('value'))
+        LOGGER.debug("cmd_set_debug_mode: {}".format(val))
+        self.set_debug_level(val)
+
     id = 'controller'
     
     commands = {
@@ -187,10 +192,10 @@ class BasStatController(Controller):
         'DISCOVER': discover,
         'UPDATE_PROFILE': update_profile,
         'REMOVE_NOTICES_ALL': remove_notices_all,
+        'SET_DM': cmd_set_debug_mode,
     }
     drivers = [ 
         {'driver': 'ST', 'value': 1, 'uom': 2},
         {'driver': 'GV0', 'value': 0, 'uom': 2},
+        {'driver': 'GV1', 'value': 10, 'uom': 25}, # Debug (Log) Mode, default=30=Warning
     ]
-     
-
