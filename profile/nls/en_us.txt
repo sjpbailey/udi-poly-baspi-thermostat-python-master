@@ -38,7 +38,7 @@ ST-statnode-GV7-NAME = Heat 1
 ST-statnode-GV8-NAME = Heat 2
 ST-statnode-GV9-NAME = Cool 1
 ST-statnode-GV10-NAME = Cool 2
-#ST-statnode-GV11-NAME = Aux Command
+ST-statnode-GV21-NAME = Aux Command
 
 
 CMD-statnode-STHT-NAME = Heating Setpoint
