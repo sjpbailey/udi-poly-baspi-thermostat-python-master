@@ -30,8 +30,8 @@
             <st id="GV13" editor="tempcool" />
             <st id="GV22" editor="HECO" />
             <st id="GV19" editor="on_off" />
-            <st id="GV20" editor="FAN" />
-            <st id="GV21" editor="FAN" />
+            <!--<st id="GV20" editor="FAN" />
+            <st id="GV21" editor="FAN" />-->
             <st id="GV1" editor="FAHVAL" />
             <st id="GV2" editor="FAHVAL" />
             <st id="GV4" editor="FAHVAL" />
