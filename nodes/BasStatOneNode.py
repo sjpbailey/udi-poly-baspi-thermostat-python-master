@@ -85,14 +85,12 @@ class BasStatOneNode(polyinterface.Node):
         self.setVirtualDriver('GV18', 7, 207) # Virtual Value VT-7 Aux Enable   
     
         ### Control Drivers ###
+    def setControllerDriver(self, driver):
         self.setControllerDriver('GV19' ) #For Schedual OVRD
         self.setControllerDriver('GV20' ) #For Fan OVRD
         self.setControllerDriver('GV21' ) #For Aux OVRD
         self.setControllerDriver('GV22' ) #For Mode OVRD
-    
-    def setControllerDriver(self, driver):
-
-        pass
+    pass
 
     ### Universal Input Conversion ###
     def setInputDriver(self, driver, input):
@@ -119,7 +117,7 @@ class BasStatOneNode(polyinterface.Node):
             count = int(float(vtout_val))
             #self.setDriver(driver, count, force=True)
         pass
-    
+
     # OOP Control Commands
     # Remote Schedule 
     def cmdOn1(self, command):
@@ -133,45 +131,7 @@ class BasStatOneNode(polyinterface.Node):
             self.bc.virtualValue(3, 203, 0)
             self.setDriver("GV14", 0)
             LOGGER.info('UnOccupied')
-    
-    # Heat Off Cool
-    def modeOn(self, command):
-        self.modeOn = int(command.get('value'))
-        self.setDriver('GV22', self.modeOn, force=True)
-        if self.modeOn == 0:
-            if self.bc.virtualValue(5, 205) != 0:
-                self.bc.virtualValue(5, 205, 0)
-                self.setDriver("GV16", 0)
-            if self.bc.virtualValue(6, 206) != 0:
-                self.bc.virtualValue(6, 206, 0)
-                self.setDriver("GV17", 0) 
-            LOGGER.info('Off')
-        elif self.modeOn == 1:
-            if self.bc.virtualValue(5, 205) != 1:
-                self.bc.virtualValue(5, 205, 1)
-                self.setDriver("GV16", 1)
-            if self.bc.virtualValue(6, 206) != 0:
-                self.bc.virtualValue(6, 206, 0)            
-                self.setDriver("GV17", 0) 
-            LOGGER.info('Heat')
-        elif self.modeOn == 2:
-            if self.bc.virtualValue(5, 205) != 0:
-                self.bc.virtualValue(5, 205, 0)
-                self.setDriver("GV16", 0)
-            if self.bc.virtualValue(6, 206) != 1:    
-                self.bc.virtualValue(6, 206, 1)            
-                self.setDriver("GV17", 1)
-            LOGGER.info('Cool')
-        return    
-        #elif self.modeOn == 3:
-        #    if self.bc.virtualValue(5, 205) != 1:
-        #        self.bc.virtualValue(5, 205, 1)
-        #        self.setDriver("GV16", 1)
-        #    if self.bc.virtualValue(6, 206) != 1:
-        #        self.bc.virtualValue(6, 206, 1)
-        #        self.setDriver("GV17", 1) 
-        #    LOGGER.info('Auto')
-    
+
     # Heating Setpoint
     def setHeat(self, command):
         ivr_one = 'heat'
@@ -212,7 +172,7 @@ class BasStatOneNode(polyinterface.Node):
             self.setDriver("GV15", 0, force=True)
             self.setDriver("GV6", 0, force=True)
             LOGGER.info('Auto')
-        
+
     # Aux Override for Whole House Fan or Exhaust
     def cmdOn3(self, command=None):
         self.setaux = int(command.get('value'))
@@ -228,6 +188,44 @@ class BasStatOneNode(polyinterface.Node):
             self.setDriver("GV18", 0, force=True)
             self.setDriver("GV11", 0, force=True)
             LOGGER.info('Auto')
+
+    # Heat Off Cool
+    def modeOn(self, command):
+        self.modeOn = int(command.get('value'))
+        self.setDriver('GV22', self.modeOn, force=True)
+        if self.modeOn == 0:
+            if self.bc.virtualValue(5, 205) != 0:
+                self.bc.virtualValue(5, 205, 0)
+                self.setDriver("GV16", 0)
+            if self.bc.virtualValue(6, 206) != 0:
+                self.bc.virtualValue(6, 206, 0)
+                self.setDriver("GV17", 0) 
+            LOGGER.info('Off')
+        elif self.modeOn == 1:
+            if self.bc.virtualValue(5, 205) != 1:
+                self.bc.virtualValue(5, 205, 1)
+                self.setDriver("GV16", 1)
+            if self.bc.virtualValue(6, 206) != 0:
+                self.bc.virtualValue(6, 206, 0)            
+                self.setDriver("GV17", 0) 
+            LOGGER.info('Heat')
+        elif self.modeOn == 2:
+            if self.bc.virtualValue(5, 205) != 0:
+                self.bc.virtualValue(5, 205, 0)
+                self.setDriver("GV16", 0)
+            if self.bc.virtualValue(6, 206) != 1:    
+                self.bc.virtualValue(6, 206, 1)            
+                self.setDriver("GV17", 1)
+            LOGGER.info('Cool')
+        return    
+        #elif self.modeOn == 3:
+        #    if self.bc.virtualValue(5, 205) != 1:
+        #        self.bc.virtualValue(5, 205, 1)
+        #        self.setDriver("GV16", 1)
+        #    if self.bc.virtualValue(6, 206) != 1:
+        #        self.bc.virtualValue(6, 206, 1)
+        #        self.setDriver("GV17", 1) 
+        #    LOGGER.info('Auto')
 
     def query(self,command=None):
         self.reportDrivers()
