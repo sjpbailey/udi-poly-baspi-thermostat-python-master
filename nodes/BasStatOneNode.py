@@ -124,7 +124,7 @@ class BasStatOneNode(polyinterface.Node):
     # Remote Schedule 
     def cmdOn1(self, command):
         self.setsch = int(command.get('value'))
-        self.setDriver("GV19", self.setsch)
+        self.setDriver("CLISMD", self.setsch)
         if self.setsch == 1:
             self.bc.virtualValue(3, 203, 1)
             self.setDriver("GV14", 1)
@@ -252,7 +252,7 @@ class BasStatOneNode(polyinterface.Node):
         {'driver': 'GV16', 'value': 1, 'uom': 25}, # Virtual Value VT-5 Heat Enable
         {'driver': 'GV17', 'value': 1, 'uom': 25}, # Virtual Value VT-6 Cool Enable
         {'driver': 'GV18', 'value': 1, 'uom': 25}, # Virtual Value VT-7 Aux Enable
-        {'driver': 'GV19', 'value': 0, 'uom': 25}, # For Schedual OVRD
+        {'driver': 'CLISMD', 'value': 0, 'uom': 25}, # For Schedual OVRD
         {'driver': 'GV20', 'value': 0, 'uom': 25}, # For Fan OVRD
         {'driver': 'CLIFS', 'value': 0, 'uom': 68}, # For Aux OVRD
         {'driver': 'CLIMD', 'value': 0, 'uom': 67}, # For Mode OVRD

@@ -51,7 +51,7 @@
             <sends />
             <accepts>
             <cmd id="BON1" >
-            <p id="" editor="on_off" init="GV19" />
+            <p id="" editor="on_off" init="CLISMD" />
             </cmd>
 
             <cmd id="BON2" >
