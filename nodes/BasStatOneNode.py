@@ -104,12 +104,14 @@ class BasStatOneNode(polyinterface.Node):
             self.setDriver(driver, count, force=True)        
 
     ### Binary Output Conversion ###    
-    def setOutputDriver(self, driver, input):
-        output_val = self.bc.binaryOutput(input)
-        count = 0
-        if output_val is not None:
-            count = (output_val)
-            self.setDriver(driver, count, force=True)
+    def setOutputDriver(self, driver, output):
+        self.bc.binaryOutput(output)
+        self.setDriver(driver, output, force=True)
+        #output_val = self.bc.binaryOutput(input)
+        #count = 0
+        #if output_val is not None:
+        #    count = (output_val)
+        
 
     ### Virtual Conversion ###
     def setVirtualDriver(self, driver, input, chanel):
@@ -119,7 +121,6 @@ class BasStatOneNode(polyinterface.Node):
         if vtout_val is not None:
             count = int(float(vtout_val))
             #self.setDriver(driver, count, force=True)
-        pass
 
     # OOP Control Commands
     # Remote Schedule 
