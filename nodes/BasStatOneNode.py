@@ -222,6 +222,12 @@ class BasStatOneNode(polyinterface.Node):
             self.setDriver("GV17", 1) 
             LOGGER.info('Auto')
 
+    def shortPoll(self):
+        LOGGER.debug('shortPoll')
+        
+    def longPoll(self):
+        LOGGER.debug('longPoll')
+
     def query(self,command=None):
         self.reportDrivers()
 
