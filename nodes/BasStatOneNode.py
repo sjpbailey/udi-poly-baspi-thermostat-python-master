@@ -119,7 +119,7 @@ class BasStatOneNode(polyinterface.Node):
         if vtout_val is not None:
             count = int(float(vtout_val))
             self.setDriver(driver, count, force=True)
-        pass
+    pass
     
     # OOP Control Commands
     # Remote Schedule 
