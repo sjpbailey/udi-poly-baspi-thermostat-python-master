@@ -88,7 +88,7 @@ class BasStatOneNode(polyinterface.Node):
     
         self.setControllerDriver('GV19', 0) #For Schedual OVRD
         self.setControllerDriver('GV20', 0) #For Fan OVRD
-        self.setControllerDriver('GV21', 0) #For Aux OVRD
+        self.setControllerDriver('CLIFS', 0) #For Aux OVRD
         self.setControllerDriver('CLIMD', 0) #For Mode OVRD
     
 

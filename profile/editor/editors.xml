@@ -33,7 +33,7 @@
     </editor>
 
     <editor id="AUX">
-        <range uom="68" subset="0-1"/>
+        <range uom="68" subset="0-1" />
     </editor>
 
     <editor id="MODE">
