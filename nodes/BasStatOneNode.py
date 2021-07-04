@@ -94,7 +94,6 @@ class BasStatOneNode(polyinterface.Node):
 
     def setControllerDriver(self, driver, input):
         self.setDriver(driver, input, force=True)
-        pass
 
     ### Universal Input Conversion ###
     def setInputDriver(self, driver, input):
@@ -126,7 +125,7 @@ class BasStatOneNode(polyinterface.Node):
     # Remote Schedule 
     def cmdOn1(self, command):
         self.setsch = int(command.get('value'))
-        self.setDriver("GV19", self.setsch, force=True)
+        self.setDriver("GV19", self.setsch)
         if self.setsch == 1:
             self.bc.virtualValue(3, 203, 1)
             self.setDriver("GV14", 1)
