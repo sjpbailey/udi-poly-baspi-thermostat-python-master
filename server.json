@@ -10,7 +10,7 @@
   "shortPoll": "120",
   "longPoll": "240",
   "testMode": false,
-  "profile_version": "1.6.4",
+  "profile_version": "1.6.3",
   "credits": [
     {
       "title": "BASpi-6U6R/Edge Thermostat",

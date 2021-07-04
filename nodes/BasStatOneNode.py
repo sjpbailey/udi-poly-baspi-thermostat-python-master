@@ -109,7 +109,7 @@ class BasStatOneNode(polyinterface.Node):
         count = 0
         if output_val is not None:
             count = (output_val)
-            #self.setDriver(driver, input, force=True)
+            self.setDriver(driver, count, force=True)
 
     ### Virtual Conversion ###
     def setVirtualDriver(self, driver, input, chanel):
@@ -119,8 +119,7 @@ class BasStatOneNode(polyinterface.Node):
         if vtout_val is not None:
             count = int(float(vtout_val))
             #self.setDriver(driver, count, force=True)
-    pass
-    
+
     # OOP Control Commands
     # Remote Schedule 
     def cmdOn1(self, command):
