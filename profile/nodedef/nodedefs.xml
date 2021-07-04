@@ -34,6 +34,7 @@
             <st id="GV13" editor="tempcool" />
             <st id="CLIMD" editor="MODE" />
             <st id="GV19" editor="on_off" />
+            <st id="GV20" editor="FAN" />
             <st id="GV3" editor="STATUS" />
             <st id="CLIFS" editor="AUX" />
             <st id="GV1" editor="FAHVAL" />
