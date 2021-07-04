@@ -42,10 +42,11 @@ class BasStatController(Controller):
         #self.poly.add_custom_config_docs("<b>And this is some custom config data</b>")
 
     def shortPoll(self, url):
-        self.get_request(self)
+        #self.get_request(self)
         #self.check_params()        
         #for node in self.nodes:
         #    self.nodes[node].reportDrivers()
+        pass
 
     def longPoll(self):
         self.heartbeat()
