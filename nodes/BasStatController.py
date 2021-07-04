@@ -43,10 +43,9 @@ class BasStatController(Controller):
 
     def shortPoll(self, url):
         #self.get_request(self)
-        #self.check_params()        
-        #for node in self.nodes:
-        #    self.nodes[node].reportDrivers()
-        pass
+        self.check_params()        
+        for node in self.nodes:
+            self.nodes[node].reportDrivers()
 
     def longPoll(self):
         self.heartbeat()
