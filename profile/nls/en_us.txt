@@ -35,12 +35,11 @@ ST-statnode-GV4-NAME = Outside Air Temp
 ST-statnode-GV5-NAME = Attic Temperature
 ST-statnode-GV6-NAME = Fan Command
 ST-statnode-GV3-NAME = Fan Status
-ST-statnode-GV11-NAME = Aux Command
+ST-statnode-CLIFS-NAME = Aux Command
 ST-statnode-GV7-NAME = Heat 1
 ST-statnode-GV8-NAME = Heat 2
 ST-statnode-GV9-NAME = Cool 1
 ST-statnode-GV10-NAME = Cool 2
-ST-statnode-CLIFS-NAME = Aux Command
 
 
 CMD-statnode-STHT-NAME = Heating Setpoint
