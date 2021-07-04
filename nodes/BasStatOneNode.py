@@ -109,7 +109,7 @@ class BasStatOneNode(polyinterface.Node):
         count = 0
         if output_val is not None:
             count = (output_val)
-            self.setDriver(driver, input, force=True)
+            #self.setDriver(driver, input, force=True)
 
     ### Virtual Conversion ###
     def setVirtualDriver(self, driver, input, chanel):
