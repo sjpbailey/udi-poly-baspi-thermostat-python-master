@@ -90,11 +90,7 @@ class BasStatOneNode(polyinterface.Node):
         self.setControllerDriver('GV20', 0) #For Fan OVRD
         self.setControllerDriver('CLIFS', 0) #For Aux OVRD
         self.setControllerDriver('CLIMD', 0) #For Mode OVRD
-    
-
-    def setControllerDriver(self, driver, input):
-        self.setDriver(driver, input, force=True)
-
+ 
     ### Universal Input Conversion ###
     def setInputDriver(self, driver, input):
         input_val = self.bc.universalInput(input)
@@ -104,9 +100,9 @@ class BasStatOneNode(polyinterface.Node):
             self.setDriver(driver, count, force=True)        
 
     ### Binary Output Conversion ###    
-    def setOutputDriver(self, driver, output):
+    def setOutputDriver(self, driver, input):
         #self.bc.binaryOutput(output)
-        self.setDriver(driver, output, force=True)
+        self.setDriver(driver, input, force=True)
         #output_val = self.bc.binaryOutput(input)
         #count = 0
         #if output_val is not None:
@@ -121,6 +117,9 @@ class BasStatOneNode(polyinterface.Node):
         if vtout_val is not None:
             count = int(float(vtout_val))
             #self.setDriver(driver, count, force=True)
+
+    def setControllerDriver(self, driver, input):
+        self.setDriver(driver, input, force=True)
 
     # OOP Control Commands
     # Remote Schedule 
