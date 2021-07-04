@@ -40,7 +40,7 @@ ST-statnode-GV7-NAME = Heat 1
 ST-statnode-GV8-NAME = Heat 2
 ST-statnode-GV9-NAME = Cool 1
 ST-statnode-GV10-NAME = Cool 2
-ST-statnode-GV21-NAME = Aux Command
+ST-statnode-CLIFS-NAME = Aux Command
 
 
 CMD-statnode-STHT-NAME = Heating Setpoint
@@ -57,10 +57,3 @@ ON_OFF-1 = Occupied
 FAN-0 = Auto
 FAN-1 = Override
 
-AUX-0 = Auto
-AUX-1 = Override
-
-#HECOA-0 = Off
-#HECOA-1 = Heat
-#HECOA-2 = Cool
-#HECOA-3 = Auto

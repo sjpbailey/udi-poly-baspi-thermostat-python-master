@@ -180,7 +180,7 @@ class BasStatOneNode(polyinterface.Node):
     # Aux Override for Whole House Fan or Exhaust
     def cmdOn3(self, command=None):
         self.setaux = int(command.get('value'))
-        self.setDriver("GV21", self.setaux, force=True) 
+        self.setDriver("CLIFS", self.setaux, force=True) 
         if self.setaux == 1:
             self.bc.virtualValue(7, 207, 1)
             self.setDriver("GV18", 1, force=True)
@@ -250,7 +250,7 @@ class BasStatOneNode(polyinterface.Node):
         {'driver': 'GV18', 'value': 1, 'uom': 25}, # Virtual Value VT-7 Aux Enable
         {'driver': 'GV19', 'value': 1, 'uom': 25}, # For Schedual OVRD
         {'driver': 'GV20', 'value': 1, 'uom': 25}, # For Fan OVRD
-        {'driver': 'GV21', 'value': 1, 'uom': 25}, # For Aux OVRD
+        {'driver': 'CLIFS', 'value': 1, 'uom': 68}, # For Aux OVRD
         {'driver': 'CLIMD', 'value': 0, 'uom': 67}, # For Mode OVRD
         ]
     id = 'basstatid'

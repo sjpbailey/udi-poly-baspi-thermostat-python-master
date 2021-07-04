@@ -34,8 +34,8 @@
             <st id="GV13" editor="tempcool" />
             <st id="CLIMD" editor="MODE" />
             <st id="GV19" editor="on_off" />
-            <!--<st id="GV20" editor="FAN" />
-            <st id="GV21" editor="FAN" />-->
+            <!--<st id="GV20" editor="FAN" />-->
+            <st id="CLIFS" editor="FAN" />
             <st id="GV1" editor="FAHVAL" />
             <st id="GV2" editor="FAHVAL" />
             <st id="GV4" editor="FAHVAL" />
@@ -72,7 +72,7 @@
             </cmd>
 
             <cmd id="BON3" >
-            <p id="" editor="FAN" init="GV21" />
+            <p id="" editor="AUX" init="CLIFS" />
             </cmd>
 
             <cmd id="QUERY" />
