@@ -105,7 +105,7 @@ class BasStatOneNode(polyinterface.Node):
 
     ### Binary Output Conversion ###    
     def setOutputDriver(self, driver, output):
-        self.bc.binaryOutput(output)
+        #self.bc.binaryOutput(output)
         self.setDriver(driver, output, force=True)
         #output_val = self.bc.binaryOutput(input)
         #count = 0
