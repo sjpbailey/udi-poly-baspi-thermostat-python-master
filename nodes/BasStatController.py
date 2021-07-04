@@ -41,7 +41,7 @@ class BasStatController(Controller):
         self.discover()
         #self.poly.add_custom_config_docs("<b>And this is some custom config data</b>")
 
-    def shortPoll(self, url):
+    def shortPoll(self):
         #self.get_request(self)
         self.check_params()        
         for node in self.nodes:
