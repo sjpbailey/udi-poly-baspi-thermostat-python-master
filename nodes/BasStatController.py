@@ -42,7 +42,8 @@ class BasStatController(Controller):
         #self.poly.add_custom_config_docs("<b>And this is some custom config data</b>")
 
     def shortPoll(self):
-        self.check_params()
+        self.get_request()
+        self.check_params()        
         for node in self.nodes:
             self.nodes[node].reportDrivers()
 
