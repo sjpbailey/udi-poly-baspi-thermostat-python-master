@@ -101,7 +101,7 @@ class BasStatOneNode(polyinterface.Node):
         count = 0
         if input_val is not None:
             count = int(float(input_val))
-            self.setDriver(driver, count, force=True)        
+            self.setDriver(driver, count)   #, force=True     
 
     ### Binary Output Conversion ###    
     def setOutputDriver(self, driver, input):
@@ -109,7 +109,7 @@ class BasStatOneNode(polyinterface.Node):
         count = 0
         if output_val is not None:
             count = int(output_val)
-            self.setDriver(driver, count, force=True)
+            self.setDriver(driver, count)
 
     ### Virtual Conversion ###
     def setVirtualDriver(self, driver, input, chanel):
