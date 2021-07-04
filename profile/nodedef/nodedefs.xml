@@ -60,7 +60,7 @@
             </cmd>
 
             <cmd id="MODE" >
-            <p id="" editor="MODE" init="GV22" />
+            <p id="" editor="MODE" init="CLIMD" />
             </cmd>
                 
             <cmd id="STHT" >
