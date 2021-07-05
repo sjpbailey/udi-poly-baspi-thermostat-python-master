@@ -68,12 +68,12 @@ class BasStatOneNode(polyinterface.Node):
         self.setInputDriver('GV5', 6) # Attic Air Temp float
         
         ### Binary/Digital Outputs ###
-        self.setOutputDriver('GV6', 1, force=True) # Fan Command BO-1
-        self.setOutputDriver('GV7', 2, force=True) # Heat Stage 1 BO-2
-        self.setOutputDriver('GV8', 3, force=True) # Heat Stage 2 BO-3
-        self.setOutputDriver('GV9', 4, force=True) # Cool Stage 1 BO-4
-        self.setOutputDriver('GV10', 5, force=True) # Cool Stage 2 BO-5
-        self.setOutputDriver('GV11', 6, force=True) # Aux Override BO-6
+        self.setOutputDriver('GV6', 1) # Fan Command BO-1
+        self.setOutputDriver('GV7', 2) # Heat Stage 1 BO-2
+        self.setOutputDriver('GV8', 3) # Heat Stage 2 BO-3
+        self.setOutputDriver('GV9', 4) # Cool Stage 1 BO-4
+        self.setOutputDriver('GV10', 5) # Cool Stage 2 BO-5
+        self.setOutputDriver('GV11', 6) # Aux Override BO-6
 
         ### Virtual Values ###
         self.setVirtualDriver('GV12', 1, 201) # Virtual Value VT-1 Heat SETP
