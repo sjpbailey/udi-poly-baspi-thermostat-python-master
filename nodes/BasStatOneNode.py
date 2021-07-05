@@ -101,7 +101,7 @@ class BasStatOneNode(polyinterface.Node):
         count = 0
         if input_val is not None:
             count = int(float(input_val))
-            self.setDriver(driver, count)   #, force=True     
+            self.setDriver(driver, count, force=True)   #, force=True     
 
     ### Binary Output Conversion ###    
     def setOutputDriver(self, driver, input):
@@ -109,7 +109,7 @@ class BasStatOneNode(polyinterface.Node):
         count = 0
         if output_val is not None:
             count = int(output_val)
-            self.setDriver(driver, count)
+            self.setDriver(driver, count, force=True)
 
     ### Virtual Conversion ###
     def setVirtualDriver(self, driver, input, chanel):
@@ -124,14 +124,14 @@ class BasStatOneNode(polyinterface.Node):
     # Remote Schedule 
     def cmdOn1(self, command):
         self.setsch = int(command.get('value'))
-        self.setDriver("CLISMD", self.setsch)
+        self.setDriver("CLISMD", self.setsch, force=True)
         if self.setsch == 1:
             self.bc.virtualValue(3, 203, 1)
-            self.setDriver("GV14", 1)
+            self.setDriver("GV14", 1, force=True)
             LOGGER.info('Occupied')
         elif self.setsch == 0:
             self.bc.virtualValue(3, 203, 0)
-            self.setDriver("GV14", 0)
+            self.setDriver("GV14", 0, force=True)
             LOGGER.info('UnOccupied')
 
     # Heating Setpoint
@@ -144,7 +144,7 @@ class BasStatOneNode(polyinterface.Node):
             LOGGER.error('Invalid Setpoint {}'.format(heat))
         else:
             self.bc.virtualValue(1, 201, heat)
-            self.setDriver('GV12', heat)
+            self.setDriver('GV12', heat, force=True)
             LOGGER.info('Heating Setpoint = ' + str(heat) +'F')
 
     # Cooling Setpoint
@@ -157,7 +157,7 @@ class BasStatOneNode(polyinterface.Node):
             LOGGER.error('Invalid Setpoint {}'.format(cool))
         else:
             self.bc.virtualValue(2, 202, cool)
-            self.setDriver('GV13', cool)
+            self.setDriver('GV13', cool, force=True)
             LOGGER.info('Cooling Setpoint = ' + str(cool) +'F')       
 
     # Fan Override 
@@ -197,27 +197,27 @@ class BasStatOneNode(polyinterface.Node):
         self.setDriver('CLIMD', self.modeOn, force=True)
         if self.modeOn == 0:
             self.bc.virtualValue(5, 205, 0)
-            self.setDriver("GV16", 0)
+            self.setDriver("GV16", 0, force=True)
             self.bc.virtualValue(6, 206, 0)
-            self.setDriver("GV17", 0) 
+            self.setDriver("GV17", 0, force=True) 
             LOGGER.info('Off')
         elif self.modeOn == 1:
             self.bc.virtualValue(5, 205, 1)
-            self.setDriver("GV16", 1)
+            self.setDriver("GV16", 1, force=True)
             self.bc.virtualValue(6, 206, 0)            
-            self.setDriver("GV17", 0) 
+            self.setDriver("GV17", 0, force=True) 
             LOGGER.info('Heat')
         elif self.modeOn == 2:
             self.bc.virtualValue(5, 205, 0)
-            self.setDriver("GV16", 0)
+            self.setDriver("GV16", 0, force=True)
             self.bc.virtualValue(6, 206, 1)            
-            self.setDriver("GV17", 1)
+            self.setDriver("GV17", 1, force=True)
             LOGGER.info('Cool')
         elif self.modeOn == 3:
             self.bc.virtualValue(5, 205, 1)
-            self.setDriver("GV16", 1)
+            self.setDriver("GV16", 1, force=True)
             self.bc.virtualValue(6, 206, 1)
-            self.setDriver("GV17", 1) 
+            self.setDriver("GV17", 1, force=True) 
             LOGGER.info('Auto')
 
     def shortPoll(self):
@@ -252,10 +252,10 @@ class BasStatOneNode(polyinterface.Node):
         {'driver': 'GV16', 'value': 1, 'uom': 25}, # Virtual Value VT-5 Heat Enable
         {'driver': 'GV17', 'value': 1, 'uom': 25}, # Virtual Value VT-6 Cool Enable
         {'driver': 'GV18', 'value': 1, 'uom': 25}, # Virtual Value VT-7 Aux Enable
-        {'driver': 'CLISMD', 'value': 0, 'uom': 25}, # For Schedual OVRD
-        {'driver': 'GV20', 'value': 0, 'uom': 25}, # For Fan OVRD
-        {'driver': 'CLIFS', 'value': 0, 'uom': 68}, # For Aux OVRD
-        {'driver': 'CLIMD', 'value': 0, 'uom': 67}, # For Mode OVRD
+        {'driver': 'CLISMD', 'value': 1, 'uom': 25}, # For Schedual OVRD
+        {'driver': 'GV20', 'value': 1, 'uom': 25}, # For Fan OVRD
+        {'driver': 'CLIFS', 'value': 1, 'uom': 68}, # For Aux OVRD
+        {'driver': 'CLIMD', 'value': 1, 'uom': 67}, # For Mode OVRD
         ]
     id = 'basstatid'
     """
