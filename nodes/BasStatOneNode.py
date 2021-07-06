@@ -242,12 +242,12 @@ class BasStatOneNode(polyinterface.Node):
         {'driver': 'GV3', 'value': 1, 'uom': 80}, # Fan Status Bool
         {'driver': 'GV4', 'value': 1, 'uom': 80}, # Outside Air Temp float
         {'driver': 'GV5', 'value': 1, 'uom': 17}, # Attic Air Temp float
-        {'driver': 'GV6', 'value': 1, 'uom': 80}, # Fan Command BO-1
-        {'driver': 'GV7', 'value': 1, 'uom': 80}, # Heat Stage 1 BO-2
-        {'driver': 'GV8', 'value': 1, 'uom': 80}, # Heat Stage 2 BO-3
-        {'driver': 'GV9', 'value': 1, 'uom': 80}, # Cool Stage 1 BO-4
-        {'driver': 'GV10', 'value': 1, 'uom': 80}, # Cool Stage 2 BO-5
-        {'driver': 'GV11', 'value': 1, 'uom': 80}, # Aux Override BO-6
+        {'driver': 'GV6', 'value': 0, 'uom': 80}, # Fan Command BO-1
+        {'driver': 'GV7', 'value': 0, 'uom': 80}, # Heat Stage 1 BO-2
+        {'driver': 'GV8', 'value': 0, 'uom': 80}, # Heat Stage 2 BO-3
+        {'driver': 'GV9', 'value': 0, 'uom': 80}, # Cool Stage 1 BO-4
+        {'driver': 'GV10', 'value': 0, 'uom': 80}, # Cool Stage 2 BO-5
+        {'driver': 'GV11', 'value': 0, 'uom': 80}, # Aux Override BO-6
         {'driver': 'GV12', 'value': 1, 'uom': 17}, # Virtual Value VT-1 Heat SETP
         {'driver': 'GV13', 'value': 1, 'uom': 17}, # Virtual Value VT-2 Cool SETP
         {'driver': 'GV14', 'value': 1, 'uom': 25}, # Virtual Value VT-3 Schedual
