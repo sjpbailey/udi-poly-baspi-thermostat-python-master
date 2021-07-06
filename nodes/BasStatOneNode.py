@@ -129,7 +129,7 @@ class BasStatOneNode(polyinterface.Node):
             self.bc.virtualValue(3, 203, 1)
             self.setDriver("GV14", 1, force=True)
             LOGGER.info('Occupied')
-        elif self.setsch == 0:
+        if self.setsch == 0:
             self.bc.virtualValue(3, 203, 0)
             self.setDriver("GV14", 0, force=True)
             LOGGER.info('UnOccupied')
