@@ -169,7 +169,7 @@ class BasStatOneNode(polyinterface.Node):
             self.setDriver("GV15", 1, force=True)
             self.setDriver("GV6", 1, force=True)
             LOGGER.info('On')
-        elif self.setfan == 0:
+        if self.setfan == 0:
             self.bc.virtualValue(4, 204, 0)
             self.setDriver("GV15", 0, force=True)
             self.setDriver("GV6", 0, force=True)
@@ -185,7 +185,7 @@ class BasStatOneNode(polyinterface.Node):
             self.setDriver("GV11", 1, force=True)
             LOGGER.info('On')
     # def cmdOn4(self, command):    
-        elif self.setaux == 0:
+        if self.setaux == 0:
             self.bc.virtualValue(7, 207, 0)
             self.setDriver("GV18", 0, force=True)
             self.setDriver("GV11", 0, force=True)
@@ -201,19 +201,19 @@ class BasStatOneNode(polyinterface.Node):
             self.bc.virtualValue(6, 206, 0)
             self.setDriver("GV17", 0, force=True) 
             LOGGER.info('Off')
-        elif self.modeOn == 1:
+        if self.modeOn == 1:
             self.bc.virtualValue(5, 205, 1)
             self.setDriver("GV16", 1, force=True)
             self.bc.virtualValue(6, 206, 0)            
             self.setDriver("GV17", 0, force=True) 
             LOGGER.info('Heat')
-        elif self.modeOn == 2:
+        if self.modeOn == 2:
             self.bc.virtualValue(5, 205, 0)
             self.setDriver("GV16", 0, force=True)
             self.bc.virtualValue(6, 206, 1)            
             self.setDriver("GV17", 1, force=True)
             LOGGER.info('Cool')
-        elif self.modeOn == 3:
+        if self.modeOn == 3:
             self.bc.virtualValue(5, 205, 1)
             self.setDriver("GV16", 1, force=True)
             self.bc.virtualValue(6, 206, 1)
