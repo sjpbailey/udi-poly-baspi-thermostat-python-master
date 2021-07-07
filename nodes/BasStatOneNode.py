@@ -86,13 +86,13 @@ class BasStatOneNode(polyinterface.Node):
     
         ### Control Drivers ###
     
-        self.setControllerDriver('CLISMD') #For Schedual OVRD
+        """self.setControllerDriver('CLISMD') #For Schedual OVRD
         self.setControllerDriver('GV20') #For Fan OVRD
         self.setControllerDriver('CLIFS') #For Aux OVRD
         self.setControllerDriver('CLIMD') #For Mode OVRD
 
     def setControllerDriver(self, driver,):
-        self.setDriver(driver, force=True)
+        self.setDriver(driver, force=True)"""
 
 
     ### Universal Input Conversion ###
