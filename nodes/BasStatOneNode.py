@@ -90,7 +90,7 @@ class BasStatOneNode(polyinterface.Node):
         count = 0
         if input_val is not None:
             count = int(float(input_val))
-            self.setDriver(driver, count, force=True)   #, force=True     
+            #self.setDriver(driver, count, force=True)   #, force=True     
 
     ### Binary Output Conversion ###    
     def setOutputDriver(self, driver, input):
@@ -98,7 +98,7 @@ class BasStatOneNode(polyinterface.Node):
         count = 0
         if output_val is not None:
             count = int(output_val)
-            self.setDriver(driver, count, force=True)
+            #self.setDriver(driver, count, force=True)
 
     ### Virtual Conversion ###
     def setVirtualDriver(self, driver, input, chanel):
@@ -246,7 +246,7 @@ class BasStatOneNode(polyinterface.Node):
         {'driver': 'GV16', 'value': 1, 'uom': 25}, # Virtual Value VT-5 Heat Enable
         {'driver': 'GV17', 'value': 1, 'uom': 25}, # Virtual Value VT-6 Cool Enable
         {'driver': 'GV18', 'value': 0, 'uom': 25}, # Virtual Value VT-7 Aux Enable
-        {'driver': 'CLISMD', 'value': "self.setsch", 'uom': 25}, # For Schedual OVRD
+        {'driver': 'CLISMD', 'uom': 25}, # For Schedual OVRD
         {'driver': 'GV20','value': 0, 'uom': 25}, # For Fan OVRD
         {'driver': 'CLIFS','value': 0, 'uom': 68}, # For Aux OVRD
         {'driver': 'CLIMD','value': "self.modeOn", 'uom': 67}, # For Mode OVRD
