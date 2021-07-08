@@ -243,14 +243,14 @@ class BasStatOneNode(polyinterface.Node):
         {'driver': 'GV11', 'value': 0, 'uom': 80}, # Aux Override BO-6
         {'driver': 'GV12', 'value': 1, 'uom': 17}, # Virtual Value VT-1 Heat SETP
         {'driver': 'GV13', 'value': 1, 'uom': 17}, # Virtual Value VT-2 Cool SETP
-        #{'driver': 'GV14','uom': 25}, # Virtual Value VT-3 Schedual
+        {'driver': 'GV14','uom': 25}, # Virtual Value VT-3 Schedual
         {'driver': 'GV15', 'value': 0, 'uom': 25}, # Virtual Value VT-4 Fan Enable
         {'driver': 'GV16', 'value': 1, 'uom': 25}, # Virtual Value VT-5 Heat Enable
         {'driver': 'GV17', 'value': 1, 'uom': 25}, # Virtual Value VT-6 Cool Enable
         {'driver': 'GV18', 'value': 0, 'uom': 25}, # Virtual Value VT-7 Aux Enable
-        {'driver': 'CLISMD', 'value': 'self.setsch', 'uom': 25}, # For Schedual OVRD
-        {'driver': 'GV20','value': 'self.setfan', 'uom': 25}, # For Fan OVRD
-        {'driver': 'CLIFS','value': 'self.setaux', 'uom': 68}, # For Aux OVRD
+        #{'driver': 'CLISMD', 'value': 'self.setsch', 'uom': 25}, # For Schedual OVRD
+        #{'driver': 'GV20','value': 'self.setfan', 'uom': 25}, # For Fan OVRD
+        #{'driver': 'CLIFS','value': 'self.setaux', 'uom': 68}, # For Aux OVRD
         #{'driver': 'CLIMD','value': "self.modeOn", 'uom': 67}, # For Mode OVRD
         ]
     id = 'basstatid'
