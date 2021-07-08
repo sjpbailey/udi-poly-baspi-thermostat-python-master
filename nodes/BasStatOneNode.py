@@ -118,12 +118,12 @@ class BasStatOneNode(polyinterface.Node):
             self.bc.virtualValue(3, 203, 0)
             self.setDriver("GV14", 0)
             LOGGER.info('UnOccupied')
+        elif self.setsch == 1:
+            self.bc.virtualValue(3, 203, 1)
+            self.setDriver("GV14", 1)
+            LOGGER.info('Occupied')
         else:
-            if self.setsch == 1:
-                self.bc.virtualValue(3, 203, 1)
-                self.setDriver("GV14", 1)
-                LOGGER.info('Occupied')
-        return
+            return
 
     # Heating Setpoint
     def setHeat(self, command):
@@ -170,7 +170,7 @@ class BasStatOneNode(polyinterface.Node):
     # Aux Override for Whole House Fan or Exhaust
     def cmdOn3(self, command=None):
         GV18 = int(command.get('value'))
-        #self.setaux = int(command.get('value'))
+        self.setaux = int(command.get('value'))
         self.setDriver("CLIFS", GV18) 
         if GV18 == 1:
             self.bc.virtualValue(7, 207, 1)
