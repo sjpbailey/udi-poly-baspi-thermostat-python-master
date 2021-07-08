@@ -225,7 +225,7 @@ class BasStatOneNode(polyinterface.Node):
         self.reportDrivers()
 
     #"Hints See: https://github.com/UniversalDevicesInc/hints"
-    hint = '0x01020900'
+    #hint = '0x01020900'
     drivers = [
         {'driver': 'ST', 'value': 1, 'uom': 2},
         {'driver': 'GV0', 'value': 1, 'uom': 17}, # Room Temperature float
