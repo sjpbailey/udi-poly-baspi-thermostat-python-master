@@ -218,7 +218,7 @@ class BasStatOneNode(polyinterface.Node):
         pass
 
     def shortPoll(self):
-        self.check_params()        
+        self.check_params(self)        
         for node in self.nodes:
             self.nodes[node].reportDrivers()
         LOGGER.debug('shortPoll')
