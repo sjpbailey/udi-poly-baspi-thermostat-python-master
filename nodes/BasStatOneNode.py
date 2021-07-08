@@ -153,7 +153,6 @@ class BasStatOneNode(polyinterface.Node):
 
     # Fan Override 
     def cmdOn2(self, command=None ):
-        #GV15 = int(command.get('value'))
         self.setfan = int(command.get('value'))
         self.setDriver("GV20", self.setfan) 
         if self.setfan == 1:
@@ -171,7 +170,6 @@ class BasStatOneNode(polyinterface.Node):
 
     # Aux Override for Whole House Fan or Exhaust
     def cmdOn3(self, command=None):
-        #GV18 = int(command.get('value'))
         self.setaux = int(command.get('value'))
         self.setDriver("CLIFS", self.setaux) 
         if self.setaux == 1:
@@ -179,8 +177,7 @@ class BasStatOneNode(polyinterface.Node):
             self.setDriver("GV18", 1, force=True)
             #self.setDriver("GV11", 1, force=True)
             LOGGER.info('On')
-    # def cmdOn4(self, command):    
-        elif self.setaux == 0:
+        if self.setaux == 0:
             self.bc.virtualValue(7, 207, 0)
             self.setDriver("GV18", 0, force=True)
             #self.setDriver("GV11", 0, force=True)
@@ -248,14 +245,14 @@ class BasStatOneNode(polyinterface.Node):
         {'driver': 'GV12', 'value': 1, 'uom': 17}, # Virtual Value VT-1 Heat SETP
         {'driver': 'GV13', 'value': 1, 'uom': 17}, # Virtual Value VT-2 Cool SETP
         #{'driver': 'GV14', 'value': 'GV14','uom': 25}, # Virtual Value VT-3 Schedual
-        #{'driver': 'GV15', 'value': 0, 'uom': 25}, # Virtual Value VT-4 Fan Enable
+        {'driver': 'GV15', 'value': 0, 'uom': 25}, # Virtual Value VT-4 Fan Enable
         {'driver': 'GV16', 'value': 1, 'uom': 25}, # Virtual Value VT-5 Heat Enable
         {'driver': 'GV17', 'value': 1, 'uom': 25}, # Virtual Value VT-6 Cool Enable
-        #{'driver': 'GV18', 'value': 0, 'uom': 25}, # Virtual Value VT-7 Aux Enable
+        {'driver': 'GV18', 'value': 0, 'uom': 25}, # Virtual Value VT-7 Aux Enable
         {'driver': 'CLISMD', 'value': 'GV14', 'uom': 25}, # For Schedual OVRD
-        #{'driver': 'GV20','value': 'self.setfan', 'uom': 25}, # For Fan OVRD
-        {'driver': 'CLIFS','value': 'GV15', 'uom': 68}, # For Aux OVRD
-        {'driver': 'CLIMD','value': "GV18", 'uom': 67}, # For Mode OVRD
+        {'driver': 'GV20','value': 'GV15', 'uom': 25}, # For Fan OVRD
+        {'driver': 'CLIFS','value': 'GV18', 'uom': 68}, # For Aux OVRD
+        {'driver': 'CLIMD','value': "self.modeOn", 'uom': 67}, # For Mode OVRD
         ]
     id = 'basstatid'
     """
