@@ -161,28 +161,32 @@ class BasStatOneNode(polyinterface.Node):
             self.setDriver("GV15", 1, force=True)
             #self.setDriver("GV6", 1, force=True)
             LOGGER.info('On')
-        if self.setfan == 0:
+        elif self.setfan == 0:
             self.bc.virtualValue(4, 204, 0)
             self.setDriver("GV15", 0, force=True)
             #self.setDriver("GV6", 0, force=True)
             LOGGER.info('Auto')
+        else:
+            return    
 
     # Aux Override for Whole House Fan or Exhaust
     def cmdOn3(self, command=None):
-        GV18 = int(command.get('value'))
+        #GV18 = int(command.get('value'))
         self.setaux = int(command.get('value'))
-        self.setDriver("CLIFS", GV18) 
-        if GV18 == 1:
+        self.setDriver("CLIFS", self.setaux) 
+        if self.setaux == 1:
             self.bc.virtualValue(7, 207, 1)
             self.setDriver("GV18", 1, force=True)
             #self.setDriver("GV11", 1, force=True)
             LOGGER.info('On')
     # def cmdOn4(self, command):    
-        if GV18 == 0:
+        elif self.setaux == 0:
             self.bc.virtualValue(7, 207, 0)
             self.setDriver("GV18", 0, force=True)
             #self.setDriver("GV11", 0, force=True)
             LOGGER.info('Auto')
+        else:
+            return    
 
     # Heat Off Cool
     def modeOn(self, command):
