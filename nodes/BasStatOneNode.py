@@ -247,7 +247,7 @@ class BasStatOneNode(polyinterface.Node):
         {'driver': 'GV16', 'value': 1, 'uom': 25}, # Virtual Value VT-5 Heat Enable
         {'driver': 'GV17', 'value': 1, 'uom': 25}, # Virtual Value VT-6 Cool Enable
         {'driver': 'GV18', 'value': 'GV18', 'uom': 25}, # Virtual Value VT-7 Aux Enable
-        {'driver': 'CLISMD', 'value': 'GV14', 'uom': 25}, # For Schedual OVRD
+        {'driver': 'CLISMD', 'uom': 25}, # For Schedual OVRD
         {'driver': 'GV20','value': 'GV15', 'uom': 25}, # For Fan OVRD
         {'driver': 'CLIFS','value': 'GV18', 'uom': 68}, # For Aux OVRD
         {'driver': 'CLIMD','value': 'self.modeOn', 'uom': 67}, # For Mode OVRD
