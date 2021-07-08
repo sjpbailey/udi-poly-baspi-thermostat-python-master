@@ -116,11 +116,11 @@ class BasStatOneNode(polyinterface.Node):
         self.setDriver("CLISMD", self.setsch)
         if self.setsch == 0:
             self.bc.virtualValue(3, 203, 0)
-            self.setDriver("GV14", 0)
+            self.setDriver("GV14", 0, force=True)
             LOGGER.info('UnOccupied')
         elif self.setsch == 1:
             self.bc.virtualValue(3, 203, 1)
-            self.setDriver("GV14", 1)
+            self.setDriver("GV14", 1, force=True)
             LOGGER.info('Occupied')
         else:
             return
@@ -158,12 +158,10 @@ class BasStatOneNode(polyinterface.Node):
         if self.setfan == 1:
             self.bc.virtualValue(4, 204, 1)
             self.setDriver("GV15", 1, force=True)
-            #self.setDriver("GV6", 1, force=True)
             LOGGER.info('On')
         elif self.setfan == 0:
             self.bc.virtualValue(4, 204, 0)
             self.setDriver("GV15", 0, force=True)
-            #self.setDriver("GV6", 0, force=True)
             LOGGER.info('Auto')
         else:
             return    
@@ -175,12 +173,10 @@ class BasStatOneNode(polyinterface.Node):
         if self.setaux == 1:
             self.bc.virtualValue(7, 207, 1)
             self.setDriver("GV18", 1, force=True)
-            #self.setDriver("GV11", 1, force=True)
             LOGGER.info('On')
         if self.setaux == 0:
             self.bc.virtualValue(7, 207, 0)
             self.setDriver("GV18", 0, force=True)
-            #self.setDriver("GV11", 0, force=True)
             LOGGER.info('Auto')
         else:
             return    
