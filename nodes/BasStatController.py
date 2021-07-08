@@ -170,8 +170,7 @@ class BasStatController(Controller):
             self.bc = Device(self.ipaddress)
             self.addNode(BasStatOneNode(self, self.address, 'basstatid', 'Fan Coil', self.ipaddress, self.bc))
             self.setDriver('GV0', 1, force=True)
-        else:
-            self.setDriver('GV0', 0, force=True)
+        
         if st:
             return True
         else:
