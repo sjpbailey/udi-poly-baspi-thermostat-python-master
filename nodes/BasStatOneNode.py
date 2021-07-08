@@ -153,15 +153,15 @@ class BasStatOneNode(polyinterface.Node):
 
     # Fan Override 
     def cmdOn2(self, command=None ):
-        GV15 = int(command.get('value'))
-        #self.setfan = int(command.get('value'))
-        self.setDriver("GV20", GV15) 
-        if GV15 == 1:
+        #GV15 = int(command.get('value'))
+        self.setfan = int(command.get('value'))
+        self.setDriver("GV20", self.setfan) 
+        if self.setfan == 1:
             self.bc.virtualValue(4, 204, 1)
             self.setDriver("GV15", 1, force=True)
             #self.setDriver("GV6", 1, force=True)
             LOGGER.info('On')
-        if GV15 == 0:
+        if self.setfan == 0:
             self.bc.virtualValue(4, 204, 0)
             self.setDriver("GV15", 0, force=True)
             #self.setDriver("GV6", 0, force=True)
@@ -249,8 +249,8 @@ class BasStatOneNode(polyinterface.Node):
         {'driver': 'GV17', 'value': 1, 'uom': 25}, # Virtual Value VT-6 Cool Enable
         {'driver': 'GV18', 'value': 0, 'uom': 25}, # Virtual Value VT-7 Aux Enable
         {'driver': 'CLISMD', 'value': 'self.setsch', 'uom': 25}, # For Schedual OVRD
-        {'driver': 'GV20', 'uom': 25}, # For Fan OVRD
-        {'driver': 'CLIFS', 'uom': 68}, # For Aux OVRD
+        {'driver': 'GV20','value': 'self.setsch', 'uom': 25}, # For Fan OVRD
+        {'driver': 'CLIFS','value': 'self.setsch', 'uom': 68}, # For Aux OVRD
         #{'driver': 'CLIMD','value': "self.modeOn", 'uom': 67}, # For Mode OVRD
         ]
     id = 'basstatid'
