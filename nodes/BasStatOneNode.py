@@ -123,9 +123,7 @@ class BasStatOneNode(polyinterface.Node):
                 self.bc.virtualValue(3, 203, 1)
                 self.setDriver("GV14", 1)
                 LOGGER.info('Occupied')
-        if self.setsch != 1 or self.setsch != 0:
-                self.setDriver("GV14", self.setsch, force=True)
-                return
+        return
 
     # Heating Setpoint
     def setHeat(self, command):
@@ -216,7 +214,7 @@ class BasStatOneNode(polyinterface.Node):
             LOGGER.info('Auto')
 
     def check_params(self,Command):
-        self.updateDriver("GV3", force=True)
+        self.updateDriver("GV3")
         pass
 
     def shortPoll(self):
@@ -224,6 +222,7 @@ class BasStatOneNode(polyinterface.Node):
         for node in self.nodes:
             self.nodes[node].reportDrivers()
         LOGGER.debug('shortPoll')
+        self.updateDriver("GV3")
         
     def longPoll(self):
         LOGGER.debug('longPoll')
@@ -238,7 +237,7 @@ class BasStatOneNode(polyinterface.Node):
         {'driver': 'GV0', 'value': 1, 'uom': 17}, # Room Temperature float
         {'driver': 'GV1', 'value': 1, 'uom': 17}, # Supply Air Temp float
         {'driver': 'GV2', 'value': 1, 'uom': 17}, # Return Air Temp float
-        {'driver': 'GV3', 'value': 1, 'uom': 80}, # Fan Status Bool
+        {'driver': 'GV3', 'value': 1, 'uom': 80,}, # Fan Status Bool
         {'driver': 'GV4', 'value': 1, 'uom': 80}, # Outside Air Temp float
         {'driver': 'GV5', 'value': 1, 'uom': 17}, # Attic Air Temp float
         {'driver': 'GV6', 'value': 0, 'uom': 80}, # Fan Command BO-1
@@ -249,7 +248,7 @@ class BasStatOneNode(polyinterface.Node):
         {'driver': 'GV11', 'value': 0, 'uom': 80}, # Aux Override BO-6
         {'driver': 'GV12', 'value': 1, 'uom': 17}, # Virtual Value VT-1 Heat SETP
         {'driver': 'GV13', 'value': 1, 'uom': 17}, # Virtual Value VT-2 Cool SETP
-        #{'driver': 'GV14', 'value': 0, 'uom': 25}, # Virtual Value VT-3 Schedual
+        {'driver': 'GV14','uom': 25}, # Virtual Value VT-3 Schedual
         {'driver': 'GV15', 'value': 0, 'uom': 25}, # Virtual Value VT-4 Fan Enable
         {'driver': 'GV16', 'value': 1, 'uom': 25}, # Virtual Value VT-5 Heat Enable
         {'driver': 'GV17', 'value': 1, 'uom': 25}, # Virtual Value VT-6 Cool Enable
