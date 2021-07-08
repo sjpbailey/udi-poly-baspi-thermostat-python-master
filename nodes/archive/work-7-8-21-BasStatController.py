@@ -18,63 +18,67 @@ from nodes import BasStatOneNode
 
 # IF you want a different log format than the current default
 LOG_HANDLER.set_log_format('%(asctime)s %(threadName)-10s %(name)-18s %(levelname)-8s %(module)s:%(funcName)s: %(message)s')
-
 class BasStatController(Controller):
     def __init__(self, polyglot):
         super(BasStatController, self).__init__(polyglot)
         self.name = 'BASpi Thermostat Controller'
         self.hb = 0
-        
+        self.ipaddress = None
+        self.debug_enable = 'False'
+        self.poly.onConfig(self.process_config)
+
     def start(self):
-        serverdata = self.poly.get_server_data(check_profile=True)
-        LOGGER.info('Started Fan Coil NodeServer {}'.format(serverdata['version']))
-        # Show values on startup if desired.
-        LOGGER.debug('ST=%s',self.getDriver('ST'))
-        self.setDriver('ST', 1)
+        # This grabs the server.json data and checks profile_version is up to date
+        serverdata = self.poly.get_server_data()
+        if 'debug_enable' in self.polyConfig['customParams']:
+            self.debug_enable = self.polyConfig['customParams']['debug_enable']
         self.heartbeat(0)
+        if self.check_params():
+            self.discover()
+
+        LOGGER.info('Starting BASpi Thermostat Controller')
         self.check_params()
-        self.set_debug_level(self.getDriver('GV1'))
         self.discover()
-        
+        #self.poly.add_custom_config_docs("<b>And this is some custom config data</b>")
+
     def shortPoll(self):
         self.discover()
-        LOGGER.debug('shortPoll')
+        self.check_params()        
         for node in self.nodes:
             self.nodes[node].reportDrivers()
 
     def longPoll(self):
-        self.heartbeat() 
-        LOGGER.debug('longPoll')
-        
+        self.heartbeat()
 
-    def query(self,command=None):
+    def query(self, command=None):
         self.check_params()
         for node in self.nodes:
             self.nodes[node].reportDrivers()
-    
     class bc:
-        def __init__(self, sIpAddress, ePlatform, bIsBinary ):
-            self.bc = Device()
-            self.ePlatform = ePlatform
-            self.bIsBinary = bIsBinary
-                
+        def __init__(self, sIpAddress):
+            self.bc = Device()    
+
     def get_request(self, url):
         try:
-            r = requests.get(url, auth=HTTPBasicAuth('http://' + self.ipaddress + '/cgi-bin/xml-cgi')) 
+            r = requests.get(url, auth=HTTPBasicAuth(self.ipaddress))
             if r.status_code == requests.codes.ok:
                 if self.debug_enable == 'True' or self.debug_enable == 'true':
                     print(r.content)
 
                 return r.content
             else:
-                LOGGER.error("BASpi6u6r.get_request:  " + r.content)
+                LOGGER.error("BASpiFanCoil.get_request:  " + r.content)
                 return None
 
         except requests.exceptions.RequestException as e:
             LOGGER.error("Error: " + str(e))
-    
+
+    def discover(self, *args, **kwargs):
+        pass
+
+                            
     def delete(self):
-        LOGGER.info('Rmoving BAS Thermostat')
+        LOGGER.info('Removing Fan Coil')
 
     def stop(self):
         LOGGER.debug('NodeServer stopped.')
@@ -82,19 +86,19 @@ class BasStatController(Controller):
     def process_config(self, config):
         # this seems to get called twice for every change, why?
         # What does config represent?
-        LOGGER.info("process_config: Enter config={}".format(config))
-        LOGGER.info("process_config: Exit")
+        LOGGER.info("process_config: Enter config={}".format(config));
+        LOGGER.info("process_config: Exit");
 
-    def heartbeat(self,init=False):
-        LOGGER.debug('heartbeat: init={}'.format(init))
+    def heartbeat(self, init=False):
+        #LOGGER.debug('heartbeat: init={}'.format(init))
         if init is not False:
             self.hb = init
-        LOGGER.debug('heartbeat: hb={}'.format(self.hb))
+        #   LOGGER.debug('heartbeat: hb={}'.format(self.hb))
         if self.hb == 0:
-            self.reportCmd("DON",2)
+            self.reportCmd("DON", 2)
             self.hb = 1
         else:
-            self.reportCmd("DOF",2)
+            self.reportCmd("DOF", 2)
             self.hb = 0
 
     def set_module_logs(self,level):
@@ -137,42 +141,50 @@ class BasStatController(Controller):
             LOG_HANDLER.set_basic_config(True,logging.WARNING)
 
     def check_params(self):
-        self.removeNoticesAll()
+        st = True
+        self.remove_notices_all()
         default_stat1_ip = None
         
         if 'stat1_ip' in self.polyConfig['customParams']:
-            self.ipaddress = self.polyConfig['customParams']['stat1_ip']    
-
+            self.ipaddress = self.polyConfig['customParams']['stat1_ip']
         else:
-                self.ipaddress = default_stat1_ip
-                LOGGER.error(
-                    'check_params: The First BASpi6u6r IP is not defined in customParams, please add at least one.  Using {}'.format(self.ipaddress))
-                  
-       
-        self.addCustomParam({'stat1_ip': self.ipaddress})
+            self.ipaddress = default_stat1_ip
+            LOGGER.error(
+                'check_params: BASpi IP not defined in customParams, please add it.  Using {}'.format(self.ipaddress))
+            st = False
+        
+        if 'debug_enable' in self.polyConfig['customParams']:
+            self.debug_enable = self.polyConfig['customParams']['debug_enable']
 
+        # Make sure they are in the params 'password': self.password, 'user': self.user,
+        self.addCustomParam({'stat1_ip': self.ipaddress, 'debug_enable': self.debug_enable})
+
+        # Add a notice if they need to change the user/password from the defaultself.user == default_user or self.password == default_password or .
         if self.ipaddress == default_stat1_ip:
-            self.setDriver('GV2', 0) 
-            self.addNotice('Please set proper, IP for your Zone Controllers as key = stat1_ip and the BASpi IP Address for Value '
-                           'in configuration page, and restart this nodeserver for additional controllers input irr2_ip, irr3_ip up to irr6')
+            self.addNotice('Please set proper, BASpi IP as key = stat1_ip and your IP Address'
+                           'in configuration page, and restart this nodeserver')
             st = False
 
-    def discover(self, *args, **kwargs):
-        ### BASpi One ###
-        LOGGER.info(self.ipaddress)
+        # Add Node Here
         if self.ipaddress is not None:
             self.bc = Device(self.ipaddress)
             self.addNode(BasStatOneNode(self, self.address, 'basstatid', 'Fan Coil', self.ipaddress, self.bc))
+            self.setDriver('GV0', 1, force=True)
         
-    def remove_notices_all(self,command):
+        if st:
+            return True
+        else:
+            return False
+
+    def remove_notices_all(self):
         LOGGER.info('remove_notices_all: notices={}'.format(self.poly.config['notices']))
         # Remove all existing notices
         self.removeNoticesAll()
 
-    def update_profile(self,command):
+    def update_profile(self, command):
         LOGGER.info('update_profile:')
         st = self.poly.installprofile()
-        return st
+        return st 
 
     def cmd_set_debug_mode(self,command):
         val = int(command.get('value'))
@@ -188,8 +200,8 @@ class BasStatController(Controller):
         'REMOVE_NOTICES_ALL': remove_notices_all,
         'SET_DM': cmd_set_debug_mode,
     }
-    drivers = [
+    drivers = [ 
         {'driver': 'ST', 'value': 1, 'uom': 2},
+        {'driver': 'GV0', 'value': 0, 'uom': 2},
         {'driver': 'GV1', 'value': 10, 'uom': 25}, # Debug (Log) Mode, default=30=Warning
-        {'driver': 'GV2', 'value': 1, 'uom': 2},
     ]
