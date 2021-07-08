@@ -123,7 +123,7 @@ class BasStatOneNode(polyinterface.Node):
                 self.bc.virtualValue(3, 203, 1)
                 self.setDriver("GV14", 1)
                 LOGGER.info('Occupied')
-        
+        return
 
     # Heating Setpoint
     def setHeat(self, command):
