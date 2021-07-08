@@ -118,10 +118,11 @@ class BasStatOneNode(polyinterface.Node):
             self.bc.virtualValue(3, 203, 0)
             self.setDriver("GV14", 0)
             LOGGER.info('UnOccupied')
-        if self.setsch == 1:
-            self.bc.virtualValue(3, 203, 1)
-            self.setDriver("GV14", 1)
-            LOGGER.info('Occupied')
+        else:
+            if self.setsch == 1:
+                self.bc.virtualValue(3, 203, 1)
+                self.setDriver("GV14", 1)
+                LOGGER.info('Occupied')
         
 
     # Heating Setpoint
