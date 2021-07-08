@@ -72,13 +72,16 @@ class BasStatController(Controller):
 
         except requests.exceptions.RequestException as e:
             LOGGER.error("Error: " + str(e))
-    
 
-    def discover(self, *args, **kwargs):
         if self.ipaddress is not None:
             self.bc = Device(self.ipaddress)
             self.addNode(BasStatOneNode(self, self.address, 'basstatid', 'Fan Coil', self.ipaddress, self.bc))
-            self.setDriver('GV0', 1, force=True)
+            self.setDriver('GV0', 1, force=True)    
+    
+
+    def discover(self, *args, **kwargs):
+        pass
+        
                             
     def delete(self):
         LOGGER.info('Removing Fan Coil')
