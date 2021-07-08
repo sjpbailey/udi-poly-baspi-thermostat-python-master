@@ -114,14 +114,15 @@ class BasStatOneNode(polyinterface.Node):
     def cmdOn1(self, command):
         self.setsch = int(command.get('value'))
         self.setDriver("CLISMD", self.setsch)
-        if self.setsch == 1:
-            self.bc.virtualValue(3, 203, 1)
-            self.setDriver("GV14", 1)
-            LOGGER.info('Occupied')
         if self.setsch == 0:
             self.bc.virtualValue(3, 203, 0)
             self.setDriver("GV14", 0)
             LOGGER.info('UnOccupied')
+        if self.setsch == 1:
+            self.bc.virtualValue(3, 203, 1)
+            self.setDriver("GV14", 1)
+            LOGGER.info('Occupied')
+        
 
     # Heating Setpoint
     def setHeat(self, command):
