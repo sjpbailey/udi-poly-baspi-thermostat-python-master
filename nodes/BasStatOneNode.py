@@ -214,7 +214,7 @@ class BasStatOneNode(polyinterface.Node):
             LOGGER.info('Auto')
 
     def check_params(self,Command):
-        self.updateDriver("GV3")
+        self.setDriver("GV3")
         pass
 
     def shortPoll(self):
@@ -222,7 +222,6 @@ class BasStatOneNode(polyinterface.Node):
         for node in self.nodes:
             self.nodes[node].reportDrivers()
         LOGGER.debug('shortPoll')
-        self.updateDriver("GV3")
         
     def longPoll(self):
         LOGGER.debug('longPoll')
