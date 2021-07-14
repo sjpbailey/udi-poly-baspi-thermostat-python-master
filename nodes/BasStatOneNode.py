@@ -230,7 +230,7 @@ class BasStatOneNode(polyinterface.Node):
         {'driver': 'GV1', 'value': 1, 'uom': 17}, # Supply Air Temp float
         {'driver': 'GV2', 'value': 1, 'uom': 17}, # Return Air Temp float
         {'driver': 'GV3', 'value': 1, 'uom': 80,}, # Fan Status Bool
-        {'driver': 'GV4', 'value': 1, 'uom': 80}, # Outside Air Temp float
+        {'driver': 'GV4', 'value': 1, 'uom': 17}, # Outside Air Temp float
         {'driver': 'GV5', 'value': 1, 'uom': 17}, # Attic Air Temp float
         {'driver': 'GV6', 'value': 0, 'uom': 80}, # Fan Command BO-1
         {'driver': 'GV7', 'value': 0, 'uom': 80}, # Heat Stage 1 BO-2
