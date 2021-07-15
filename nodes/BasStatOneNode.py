@@ -105,11 +105,11 @@ class BasStatOneNode(polyinterface.Node):
     ### Virtual Conversion ###
     def setVirtualDriver(self, driver, input, chanel):
         vtout_val = self.bc.virtualValue(input, chanel)
-        #self.setDriver(driver, vtout_val)
+        self.setDriver(driver, vtout_val)
         count = 0
         if vtout_val is not None:
             count = int(float(vtout_val))
-            self.setDriver(driver, count, vtout_val, force=True)
+            #self.setDriver(driver, count, vtout_val, force=True)
 
     # OOP Control Commands
     # Remote Schedule 
