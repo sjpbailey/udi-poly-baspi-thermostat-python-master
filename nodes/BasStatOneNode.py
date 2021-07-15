@@ -54,7 +54,7 @@ class BasStatOneNode(polyinterface.Node):
         for i in range(1,7):
             LOGGER.info('BO ' + '\t' + str(self.bc.binaryOutput(i)))
         LOGGER.info('Virtual')
-        for i in range(1,8):
+        for i in range(1,10):
             for x in range(1):
                 LOGGER.info('VT '  + '\t' + str(self.bc.virtualValue(i, x)))
 
