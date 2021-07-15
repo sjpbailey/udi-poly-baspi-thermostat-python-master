@@ -10,12 +10,12 @@
   "shortPoll": "120",
   "longPoll": "240",
   "testMode": false,
-  "profile_version": "1.6.3",
+  "profile_version": "1.6.4",
   "credits": [
     {
       "title": "BASpi-6U6R/Edge Thermostat",
       "author": "Steve Bailey (sjpbailey)",
-      "version": "1.6.4",
+      "version": "1.6.5",
       "date": "April 15, 2021",
       "source": "https://github.com/sjpbailey/udi-poly-baspi-thermostat-python-master",
       "license": "https://github.com/sjpbailey/udi-poly-baspi-thermostat-python-master/LICENSE"
