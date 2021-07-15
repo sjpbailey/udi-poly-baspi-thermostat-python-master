@@ -82,7 +82,9 @@ class BasStatOneNode(polyinterface.Node):
         self.setVirtualDriver('GV15', 4, 204) # Virtual Value VT-4 Fan Enable
         self.setVirtualDriver('GV16', 5, 205) # Virtual Value VT-5 Heat Enable
         self.setVirtualDriver('GV17', 6, 206) # Virtual Value VT-6 Cool Enable
-        self.setVirtualDriver('GV18', 7, 207) # Virtual Value VT-7 Aux Enable   
+        self.setVirtualDriver('GV18', 7, 207) # Virtual Value VT-7 Aux Enable
+        self.setVirtualDriver('GV22', 8, 208) # Virtual Value VT-8 Cool SETP
+        self.setVirtualDriver('GV23', 9, 209) # Virtual Value VT-9 HEAT SETP   
     
     ### Universal Input Conversion ###
     def setInputDriver(self, driver, input):
@@ -240,6 +242,7 @@ class BasStatOneNode(polyinterface.Node):
         {'driver': 'GV11', 'value': 0, 'uom': 80}, # Aux Override BO-6
         {'driver': 'GV12', 'value': 1, 'uom': 17}, # Virtual Value VT-1 Heat SETP
         {'driver': 'GV13', 'value': 1, 'uom': 17}, # Virtual Value VT-2 Cool SETP
+        
         ##### Cycles GV's to value? So only setting the drivers above in def setVirtualDriver virtual values! #####
         #{'driver': 'GV14', 'value': 0,'uom': 25}, # Virtual Value VT-3 Schedual
         #{'driver': 'GV15', 'value': 0, 'uom': 25}, # Virtual Value VT-4 Fan Enable

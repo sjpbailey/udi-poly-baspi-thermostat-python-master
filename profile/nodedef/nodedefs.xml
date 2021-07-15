@@ -32,6 +32,8 @@
             <st id="GV0" editor="FAHVAL" />
             <st id="GV12" editor="tempheat" />
             <st id="GV13" editor="tempcool" />
+            <st id="GV22" editor="tempcool" />
+            <st id="GV23" editor="tempheat" />
             <st id="CLIMD" editor="MODE" />
             <st id="CLISMD" editor="on_off" />
             <st id="GV20" editor="FAN" />
