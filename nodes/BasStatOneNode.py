@@ -214,6 +214,7 @@ class BasStatOneNode(polyinterface.Node):
 
     def shortPoll(self):
         setInputDriver(self)
+        setVirtualDriver(self)
         for node in self.nodes:
             self.nodes[node].reportDrivers()
         LOGGER.debug('shortPoll')
