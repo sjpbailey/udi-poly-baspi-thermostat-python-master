@@ -138,6 +138,7 @@ class BasStatOneNode(polyinterface.Node):
         else:
             self.bc.virtualValue(1, 201, heat)
             self.setDriver('GV12', heat, force=True)
+            self.setDriver('GV30', force=True)
             LOGGER.info('Heating Setpoint = ' + str(heat) +'F')
 
     # Cooling Setpoint
@@ -151,6 +152,7 @@ class BasStatOneNode(polyinterface.Node):
         else:
             self.bc.virtualValue(2, 202, cool)
             self.setDriver('GV13', cool, force=True)
+            self.setDriver('GV29', force=True)
             LOGGER.info('Cooling Setpoint = ' + str(cool) +'F')       
 
     # Fan Override 
