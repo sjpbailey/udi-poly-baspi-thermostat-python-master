@@ -162,7 +162,7 @@ class BasStatController(Controller):
         # Add a notice if they need to change the user/password from the defaultself.user == default_user or self.password == default_password or .
         if self.ipaddress == default_stat1_ip:
             self.addNotice('Please set proper, BASpi IP as key = stat1_ip and your IP Address'
-                           'in configuration page, and restart this nodeserver')
+                        'in configuration page, and restart this nodeserver')
             st = False
 
         # Add Node Here
